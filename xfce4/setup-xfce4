@@ -12,6 +12,7 @@ rc-update add networkmanager
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > /home/$(getent passwd 1000 | cut -d: -f1)/.bashrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > /home/$(getent passwd 1000 | cut -d: -f1)/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > /home/$(getent passwd 1000 | cut -d: -f1)/.Xresources
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
