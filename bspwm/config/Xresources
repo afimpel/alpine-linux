@@ -23,8 +23,7 @@ URxvt.boldfont:xft:Ubuntu:pixelsize=12
 
 ! xterm ----------------------------------------------------------------------
 
-xterm*VT100.geometry:     90x30
-xterm*faceName:           Ubuntu:style=Regular:size=12
+xterm*faceName:           Ubuntu:style=Regular:size=10
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
 xterm*utf8:               2
@@ -32,8 +31,8 @@ xterm*eightBitInput:      true
 xterm*saveLines:          512
 xterm*scrollKey:          true
 xterm*scrollTtyOutput:    false
-xterm*scrollBar:          true
-xterm*rightScrollBar:     true
+xterm*scrollBar:          false
+xterm*rightScrollBar:     false
 xterm*jumpScroll:         true
 xterm*multiScroll:        true
 xterm*toolBar:            false
