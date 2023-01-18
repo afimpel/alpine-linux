@@ -8,7 +8,6 @@ PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\
 
 export LS_OPTIONS='--color=auto';
 
-eval "`dircolors`"
 alias tailf='tail --follow'
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -lh'
