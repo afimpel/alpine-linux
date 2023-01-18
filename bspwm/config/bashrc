@@ -1,0 +1,18 @@
+PROMPT_DIRTRIM=2
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\[\033[00m\]\$ '
+
+export LS_OPTIONS='--color=auto';
+
+alias tailf='tail --follow'
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -lh'
+alias la='ls $LS_OPTIONS -lhA'
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi

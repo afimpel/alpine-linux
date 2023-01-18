@@ -1,0 +1,1 @@
+setxkbmap -layout es

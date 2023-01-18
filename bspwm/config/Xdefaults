@@ -1,0 +1,17 @@
+Xterm*Background:		black
+Xterm*Foreground:		gray
+Xterm*cursorColor:		LightRed
+Xterm*pointerShape:		arrow
+Xterm*pointerColor:		red
+UXterm*Background:		black
+UXterm*Foreground:		gray
+UXterm*cursorColor:		LightRed
+UXterm*pointerShape:		arrow
+UXterm*pointerColor:		red
+
+XTerm*allowTitleOps:		true
+UXTerm*allowTitleOps:		true
+
+*geometry:			112x35
+
+
