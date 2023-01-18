@@ -2,7 +2,7 @@
 
 setup-xorg-base 
 echo bspwm setup script with lightdm
-apk add bspwm sxhkd lightdm-gtk-greeter xterm feh picom setxkbmap font-fira-code libva-glx rofi polybar ranger htop firefox xcalc
+apk add bspwm sxhkd lightdm-gtk-greeter xterm feh picom setxkbmap font-ubuntu libva-glx rofi polybar ranger htop firefox xcalc
 # Creates main config directory
 echo Creating config directory
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bashrc > /home/$(getent passwd 1000 | cut -d: -f1)/.bashrc

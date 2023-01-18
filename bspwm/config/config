@@ -30,9 +30,9 @@ highlight = ${xrdb:color15:#222}
 
 [bar/base]
 enable-ipc = true
-font-0=Fira Code:Style=Bold:pixelsize=13:antialias=true;2
-font-1=Fira Code:style=Solid:pixelsize=13:antialias=true;2
-font-2=Fira Code:style=Regular:size=13:antialias=true;3
+font-0=Ubuntu:Style=Bold:pixelsize=13:antialias=true;2
+font-1=Ubuntu:style=Solid:pixelsize=13:antialias=true;2
+font-2=Ubuntu:style=Regular:size=13:antialias=true;3
 
 padding = 2
 border-size = 0

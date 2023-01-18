@@ -17,14 +17,14 @@ Xft.hinting:    true
 Xft.hintstyle:  hintfull
 
 ! -- Fonts -- !
-URxvt.font:xft:Fira Code Regular:pixelsize=12
-URxvt.boldfont:xft:Fira Code Regular:pixelsize=12
+URxvt.font:xft:Ubuntu:pixelsize=12
+URxvt.boldfont:xft:Ubuntu:pixelsize=12
 
 
 ! xterm ----------------------------------------------------------------------
 
 xterm*VT100.geometry:     90x30
-xterm*faceName:           Fira Code Regular:style=Regular:size=12
+xterm*faceName:           Ubuntu:style=Regular:size=12
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
 xterm*utf8:               2
@@ -53,7 +53,7 @@ aterm*scrollBar:                false
 !aterm*scrollBar_right:          true
 aterm*transpscrollbar:          true
 aterm*borderwidth:              0
-aterm*font:                     -*-Fira Code Regular-*-*-*-*-*-*-*-*-*-*-*-*
+aterm*font:                     -*-Ubuntu-*-*-*-*-*-*-*-*-*-*-*-*
 aterm*geometry:                 80x25
 !aterm*fading:                  70  
 
