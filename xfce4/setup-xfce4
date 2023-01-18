@@ -17,4 +17,5 @@ curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xr
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
+chown 1000:1000 /home/$(getent passwd 1000 | cut -d: -f1) -R
 reboot
