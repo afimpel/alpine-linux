@@ -1,3 +1,5 @@
 #!/bin/bash
 apk add nano git mc bash zsh htop neofetch curl btop sudo
 echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
+sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
+reboot
