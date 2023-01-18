@@ -23,6 +23,7 @@ URxvt.boldfont:xft:Ubuntu:pixelsize=12
 
 ! xterm ----------------------------------------------------------------------
 
+xterm*VT100.geometry:     90x30
 xterm*faceName:           Ubuntu:style=Regular:size=10
 !xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
 xterm*dynamicColors:      true
