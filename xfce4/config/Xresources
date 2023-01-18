@@ -1,0 +1,165 @@
+! special
+*.foreground:   #a5a2a2
+*.background:   #090300
+*.cursorColor:  #a5a2a2
+
+! black
+*.color0:       #090300
+*.color8:       #5c5855
+
+! red
+*.color1:       #db2d20
+*.color9:       #db2d20
+
+! green
+*.color2:       #01a252
+*.color10:      #01a252
+
+! yellow
+*.color3:       #fded02
+*.color11:      #fded02
+
+! blue
+*.color4:       #01a0e4
+*.color12:      #01a0e4
+
+! magenta
+*.color5:       #a16a94
+*.color13:      #a16a94
+
+! cyan
+*.color6:       #b5e4f4
+*.color14:      #b5e4f4
+
+! white
+*.color7:       #a5a2a2
+
+*.color15:      #f7f7f7
+
+!! URxvt Appearance
+
+! Fake Transparency
+URxvt*inheritPixmap: true
+URxvt*transparent: true
+URxvt*shading: 10
+
+! Compositor Transparency 
+! URxvt.depth: 32
+! URxvt.background: rgba:1111:1111:1111:dddd
+
+! Blur (laggy)
+! URxvt.blurRadius: 5
+
+URxvt.font: xft:Fira Code Regular:size=18:antialias=true
+URxvt.boldFont: xft:Fira Code Regular:size=18:antialias=true
+URxvt.italicFont: xft:Fira Code Regular:size=18:antialias=true
+URxvt.boldItalicfont: xft:Fira Code Regular:size=18:antialias=true
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: true
+URxvt.depth: 24
+URxvt.iso14755: false
+
+! xterm ----------------------------------------------------------------------
+
+xterm*VT100.geometry:     122x35
+xterm*faceName:           Fira Code Regular:style=Regular:size=12
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*dynamicColors:      true
+xterm*utf8:               2
+xterm*eightBitInput:      true
+xterm*saveLines:          512
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          true
+xterm*rightScrollBar:     true
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
+xterm*toolBar:            false
+xterm*background:   	  black
+xterm*foreground:         white
+
+!aterm settings-------------------------------------------------------------     
+
+aterm*background:               black
+aterm*foreground:               white
+aterm*transparent:              true
+aterm*shading:                  30
+aterm*cursorColor:              gray
+aterm*saveLines:                2000
+!aterm*tinting:                 gray
+aterm*scrollBar:                false
+!aterm*scrollBar_right:          true
+aterm*transpscrollbar:          true
+aterm*borderwidth:              0
+aterm*font:                     -*-Fira Code Regular-*-*-*-*-*-*-*-*-*-*-*-*
+aterm*geometry:                 80x25
+!aterm*fading:                  70  
+
+! xpdf -----------------------------------------------------------------------
+
+xpdf*enableFreetype:    yes
+xpdf*antialias:         yes
+xpdf*foreground:        black
+xpdf*background:        white
+xpdf*urlCommand:        /usr/bin/firefox %s
+
+!xcalc-----------------------------------------------------------------------
+
+xcalc*geometry:                        300x420
+xcalc.ti.bevel.background:             #111111
+xcalc.ti.bevel.screen.background:      #000000
+xcalc.ti.bevel.screen.DEG.background:  #000000
+xcalc.ti.bevel.screen.DEG.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.GRAD.background: #000000
+xcalc.ti.bevel.screen.GRAD.foreground: LightSeaGreen
+xcalc.ti.bevel.screen.RAD.background:  #000000
+xcalc.ti.bevel.screen.RAD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.INV.background:  #000000
+xcalc.ti.bevel.screen.INV.foreground:  Red
+xcalc.ti.bevel.screen.LCD.background:  #000000
+xcalc.ti.bevel.screen.LCD.foreground:  LightSeaGreen
+xcalc.ti.bevel.screen.LCD.shadowWidth: 0
+xcalc.ti.bevel.screen.M.background:    #000000
+xcalc.ti.bevel.screen.M.foreground:    LightSeaGreen
+xcalc.ti.bevel.screen.P.background:    #000000
+xcalc.ti.bevel.screen.P.foreground:    Yellow
+xcalc.ti.Command.foreground:  White
+xcalc.ti.Command.background:  #777777
+xcalc.ti.button4.background:  Orange3
+xcalc.ti.button5.background:  Orange3
+xcalc.ti.button19.background: #611161
+xcalc.ti.button18.background: #611161
+xcalc.ti.button17.background: #611161
+xcalc.ti.button16.background: #611161
+xcalc.ti.button20.background: #611111
+!uncomment to change label on division button
+!xcalc.ti.button20.label:      /
+xcalc.ti.button25.background: #722222
+xcalc.ti.button30.background: #833333
+xcalc.ti.button35.background: #944444
+xcalc.ti.button40.background: #a55555
+xcalc.ti.button45.background: #b55555
+xcalc.ti.button50.background: #c55555
+xcalc.ti.button55.background: #d55555
+xcalc.ti.button22.background: #222262
+xcalc.ti.button23.background: #222262
+xcalc.ti.button24.background: #222272
+xcalc.ti.button27.background: #333373
+xcalc.ti.button28.background: #333373
+xcalc.ti.button29.background: #333373
+xcalc.ti.button32.background: #444484
+xcalc.ti.button33.background: #444484
+xcalc.ti.button34.background: #444484
+xcalc.ti.button37.background: #555595
+xcalc.ti.button53.background: #555595
+xcalc.ti.button54.background: #555595
+XCalc*Cursor:                 hand2
+XCalc*ShapeStyle:             rectangle
