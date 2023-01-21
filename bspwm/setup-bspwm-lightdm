@@ -1,65 +1,72 @@
 #!/bin/bash
 
-setup-xorg-base 
+sudo setup-xorg-base 
 echo bspwm setup script with lightdm
-apk add bspwm sxhkd lightdm-gtk-greeter xterm feh picom setxkbmap font-ubuntu libva-glx rofi polybar ranger htop firefox xcalc
+sudo apk add bspwm sxhkd lightdm-gtk-greeter rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox
 # Creates main config directory
 echo Creating config directory
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bashrc > /home/$(getent passwd 1000 | cut -d: -f1)/.bashrc
-mkdir /home/$(getent passwd 1000 | cut -d: -f1)/.config
+mkdir ~/.config
 # Creates subdirectories
 echo Creating bspwm, sxhkd, picom and polybar subdirectories
-mkdir /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm
-mkdir /home/$(getent passwd 1000 | cut -d: -f1)/.config/sxhkd
-mkdir /home/$(getent passwd 1000 | cut -d: -f1)/.config/picom
-mkdir /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar
+mkdir ~/.config/bspwm
+mkdir ~/.config/sxhkd
+mkdir ~/.config/picom
+mkdir ~/.config/polybar
 # Creates config files
 
 #lightdm-gtk-greeter
 echo Configuring lightdm-gtk-greeter
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
 
 #polybar
 echo Creating polybar files
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar/launch.sh
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/launch.sh > /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar/launch.sh
-chmod +x /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar/launch.sh
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar/config
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config > /home/$(getent passwd 1000 | cut -d: -f1)/.config/polybar/config
+rm ~/.config/polybar/launch.sh
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
+chmod +x ~/.config/polybar/launch.sh
+rm ~/.config/polybar/config
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config > ~/.config/polybar/config
 
 #bspwmrc
 echo Creating bspwmrc config file
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm/bspwmrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bspwmrc > /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm/bspwmrc
-chmod +x /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm/bspwmrc
+rm ~/.config/bspwm/bspwmrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
+chmod +x ~/.config/bspwm/bspwmrc
 
 #sxhkdrc
 echo Creating sxhkdrc config file
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/sxhkd/sxhkdrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/sxhkdrc > /home/$(getent passwd 1000 | cut -d: -f1)/.config/sxhkd/sxhkdrc
+rm ~/.config/sxhkd/sxhkdrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
 
 #picom.conf
 echo Creating picom.conf config file
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/picom/picom.conf
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/picom.conf > /home/$(getent passwd 1000 | cut -d: -f1)/.config/picom/picom.conf
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/picom/_picom.conf
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/_picom.conf > /home/$(getent passwd 1000 | cut -d: -f1)/.config/picom/_picom.conf
+rm ~/.config/picom/picom.conf
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/picom.conf > ~/.config/picom/picom.conf
+rm ~/.config/picom/_picom.conf
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
 
 #.Xresources
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.Xresources
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xresources > /home/$(getent passwd 1000 | cut -d: -f1)/.Xresources
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xdefaults > /home/$(getent passwd 1000 | cut -d: -f1)/.Xdefaults
+rm ~/.Xresources
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xresources > ~/.Xresources
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xdefaults > ~/.Xdefaults
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bashrc > ~/.bashrc
 
 #.xinitrc
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.xinitrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/xinitrc > /home/$(getent passwd 1000 | cut -d: -f1)/.xinitrc
+rm ~/.xinitrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/xinitrc > ~/.xinitrc
 
 # wallpapers
 echo Downloading wallpapers
-rm /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm/wallpaper.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /home/$(getent passwd 1000 | cut -d: -f1)/.config/bspwm/wallpaper.jpg
+rm ~/.config/bspwm/wallpaper.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > ~/.config/bspwm/wallpaper.jpg
+rm ~/.config/bspwm/wallpaper-1.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > ~/.config/bspwm/wallpaper-1.jpg
+rm ~/.config/bspwm/wallpaper-2.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > ~/.config/bspwm/wallpaper-2.jpg
+rm ~/.config/bspwm/wallpaper-3.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > ~/.config/bspwm/wallpaper-3.jpg
+rm ~/.config/bspwm/wallpaper-4.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > ~/.config/bspwm/wallpaper-4.jpg
 # starting lightdm
 echo Starting lightdm
-rc-update add lightdm
-chown 1000:1000 /home/$(getent passwd 1000 | cut -d: -f1) -R
-reboot
+sudo rc-update add lightdm
+sudo reboot
