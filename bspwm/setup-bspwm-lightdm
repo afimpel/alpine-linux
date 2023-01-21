@@ -12,6 +12,7 @@ mkdir ~/.config/bspwm
 mkdir ~/.config/sxhkd
 mkdir ~/.config/picom
 mkdir ~/.config/polybar
+mkdir ~/.config/rofi
 # Creates config files
 
 #lightdm-gtk-greeter
@@ -43,6 +44,11 @@ rm ~/.config/picom/picom.conf
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/picom.conf > ~/.config/picom/picom.conf
 rm ~/.config/picom/_picom.conf
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
+
+#config.rasi
+echo Creating rofi config file
+rm ~/.config/rofi/config.rasi
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
 
 #.Xresources
 rm ~/.Xresources
