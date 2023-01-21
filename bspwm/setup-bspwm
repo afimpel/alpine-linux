@@ -14,6 +14,7 @@ mkdir ~/.config/picom
 mkdir ~/.config/polybar
 mkdir ~/.config/rofi
 # Creates config files
+sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/motd > /etc/motd
 
 #lightdm-gtk-greeter
 echo Configuring lightdm-gtk-greeter

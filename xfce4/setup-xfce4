@@ -21,7 +21,7 @@ chmod 777 ~/github.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/config.rasi > ~/.config/rofi/config.rasi
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
@@ -32,6 +32,7 @@ curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/pa
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
 chmod 777 ~/.config/xfce4/panel/launcher-* -R
 sudo su
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/motd > /etc/motd
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
