@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo setup-xorg-base 
-sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin
+sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin xfce4-notifyd 
 
 sudo rc-update add dbus
 sudo rc-update add lightdm
@@ -10,14 +10,22 @@ sudo rc-update del wpa_supplicant boot
 sudo rc-update add networkmanager
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
+mkdir -p ~/.config/xfce4/panel/launcher-17
+mkdir -p ~/.config/xfce4/panel/launcher-18
+mkdir -p ~/.config/xfce4/panel/launcher-19
+mkdir -p ~/.config/xfce4/panel/launcher-20
 
-
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/github.desktop > ~/github.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
 sudo su
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
@@ -30,3 +38,4 @@ curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallp
 curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
 curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
 reboot
+

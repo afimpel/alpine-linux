@@ -17,6 +17,7 @@
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="4"/>
+        <value type="int" value="1"/>
         <value type="int" value="5"/>
         <value type="int" value="6"/>
         <value type="int" value="8"/>
@@ -70,14 +71,16 @@
       <property name="expand" type="bool" value="true"/>
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-4" type="string" value="pager"/>
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="2"/>
+    </property>
     <property name="plugin-5" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="ethernet network connection “ifupdown (eth0)” active"/>
+        <value type="string" value="ethernet network"/>
       </property>
     </property>
     <property name="plugin-8" type="string" value="pulseaudio">
@@ -88,31 +91,51 @@
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-12" type="string" value="clock"/>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="4"/>
+      <property name="show-seconds" type="bool" value="true"/>
+      <property name="flash-separators" type="bool" value="true"/>
+    </property>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-14" type="string" value="actions"/>
+    <property name="plugin-14" type="string" value="actions">
+      <property name="appearance" type="uint" value="0"/>
+      <property name="items" type="array">
+        <value type="string" value="-lock-screen"/>
+        <value type="string" value="-switch-user"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-suspend"/>
+        <value type="string" value="-hibernate"/>
+        <value type="string" value="-hybrid-sleep"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="+restart"/>
+        <value type="string" value="+shutdown"/>
+        <value type="string" value="-separator"/>
+        <value type="string" value="-logout"/>
+        <value type="string" value="-logout-dialog"/>
+      </property>
+    </property>
     <property name="plugin-15" type="string" value="showdesktop"/>
     <property name="plugin-16" type="string" value="separator"/>
     <property name="plugin-17" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16742796761.desktop"/>
+        <value type="string" value="firefox.desktop"/>
       </property>
     </property>
     <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16742796762.desktop"/>
+        <value type="string" value="xfce4-terminal-emulator.desktop"/>
       </property>
     </property>
     <property name="plugin-19" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16742796763.desktop"/>
+        <value type="string" value="xfce4-file-manager.desktop"/>
       </property>
     </property>
     <property name="plugin-20" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16742796764.desktop"/>
+        <value type="string" value="org.xfce.mousepad.desktop"/>
       </property>
     </property>
     <property name="plugin-21" type="string" value="separator"/>
@@ -120,5 +143,6 @@
       <property name="base-directory" type="string" value="/home/afimpel"/>
     </property>
     <property name="plugin-10" type="string" value="whiskermenu"/>
+    <property name="plugin-1" type="string" value="notification-plugin"/>
   </property>
 </channel>

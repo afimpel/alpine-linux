@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=github alpine-linux
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=firefox https://github.com/afimpel/alpine-linux
+Icon=firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
+StartupNotify=true
+StartupWMClass=firefox
+Categories=Network;WebBrowser;
+Actions=new-window;new-private-window;
+X-XFCE-Source=file:///usr/share/applications/firefox.desktop
