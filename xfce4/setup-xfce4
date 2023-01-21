@@ -11,20 +11,21 @@ sudo rc-update add networkmanager
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
 
-sudo adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
-sudo mkdir -p /usr/share/wallpapers
-sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/wallpapers/wallpaper.jpg
-sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/wallpapers/wallpaper-1.jpg
-sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/wallpapers/wallpaper-2.jpg
-sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/wallpapers/wallpaper-3.jpg
-sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/wallpapers/wallpaper-4.jpg
-sudo reboot
+sudo su
+adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
+mkdir -p /usr/share/wallpapers
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/wallpapers/wallpaper.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/wallpapers/wallpaper-1.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/wallpapers/wallpaper-2.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/wallpapers/wallpaper-3.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/wallpapers/wallpaper-4.jpg
+reboot
