@@ -1,21 +1,30 @@
 #!/bin/bash
-setup-xorg-base 
-apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad  xcalc
+sudo setup-xorg-base 
+sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi
 
-rc-update add dbus
-rc-update add lightdm
-rc-update add elogind
-rc-update del networking boot
-rc-update del wpa_supplicant boot
-rc-update add networkmanager
+sudo rc-update add dbus
+sudo rc-update add lightdm
+sudo rc-update add elogind
+sudo rc-update del networking boot
+sudo rc-update del wpa_supplicant boot
+sudo rc-update add networkmanager
+mkdir -p ~/.config/rofi
+mkdir -p ~/.config/xfce4/xfconf/xfce-perchannel-xml
 
-adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+sudo adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > /home/$(getent passwd 1000 | cut -d: -f1)/.bashrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > /home/$(getent passwd 1000 | cut -d: -f1)/.Xdefaults
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > /home/$(getent passwd 1000 | cut -d: -f1)/.Xresources
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
-chown 1000:1000 /home/$(getent passwd 1000 | cut -d: -f1) -R
-reboot
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+sudo curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
+sudo mkdir -p /usr/share/wallpapers
+sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/wallpapers/wallpaper.jpg
+sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/wallpapers/wallpaper-1.jpg
+sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/wallpapers/wallpaper-2.jpg
+sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/wallpapers/wallpaper-3.jpg
+sudo curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/wallpapers/wallpaper-4.jpg
+sudo reboot
