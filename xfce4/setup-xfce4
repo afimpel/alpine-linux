@@ -17,6 +17,7 @@ mkdir -p ~/.config/xfce4/panel/launcher-20
 mkdir -p .local/share/xfce4/helpers/
 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/github.desktop > ~/github.desktop
+chmod 777 ~/github.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
@@ -29,6 +30,7 @@ curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/pa
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
+chmod 777 ~/.config/xfce4/panel/launcher-* -R
 sudo su
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
