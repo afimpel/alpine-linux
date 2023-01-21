@@ -19,6 +19,7 @@ curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/co
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 sudo su
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/panel-default.xml > /etc/xdg/xfce4/panel/default.xml 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
