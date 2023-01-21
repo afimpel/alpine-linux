@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo setup-xorg-base 
-sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi
+sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin
 
 sudo rc-update add dbus
 sudo rc-update add lightdm
@@ -22,10 +22,10 @@ adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/security/audio.conf > /etc/security/limits.d/audio.conf
-mkdir -p /usr/share/wallpapers
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/wallpapers/wallpaper.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/wallpapers/wallpaper-1.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/wallpapers/wallpaper-2.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/wallpapers/wallpaper-3.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/wallpapers/wallpaper-4.jpg
+mkdir -p /usr/share/backgrounds/xfce
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-1.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-2.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
 reboot
