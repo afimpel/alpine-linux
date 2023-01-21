@@ -14,12 +14,15 @@ mkdir -p ~/.config/xfce4/panel/launcher-17
 mkdir -p ~/.config/xfce4/panel/launcher-18
 mkdir -p ~/.config/xfce4/panel/launcher-19
 mkdir -p ~/.config/xfce4/panel/launcher-20
+mkdir -p .local/share/xfce4/helpers/
 
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/github.desktop > ~/github.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/bashrc > ~/.bashrc
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xdefaults > ~/.Xdefaults
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/Xresources > ~/.Xresources
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
