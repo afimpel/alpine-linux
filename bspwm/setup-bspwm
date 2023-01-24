@@ -1,6 +1,4 @@
 #!/bin/bash
-wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/installer.sh | sudo sh
-
 sudo setup-xorg-base 
 echo bspwm setup script with lightdm
 sudo apk add bspwm sxhkd lightdm-gtk-greeter rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox mousepad  xcalc
