@@ -45,8 +45,5 @@ curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallp
 curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-2.jpg
 curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
 curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
-exit
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrep
-
 reboot
 
