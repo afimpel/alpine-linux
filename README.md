@@ -1,6 +1,6 @@
 !! Importante seguir el orden numerado para cada caso !!
 
-<sup> **XFCE**: se tiene que instalar: 1) setup-basic-postinstal y 2) setup-xfce4  </sup>
+<sup> EJ: **XFCE**: se tiene que instalar: 1) setup-basic-postinstal y 2) setup-xfce4  </sup>
 
 # alpine-linux
 Alpine Linux Setup a un solo click.
