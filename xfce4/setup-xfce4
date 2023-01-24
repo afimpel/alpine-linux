@@ -32,6 +32,7 @@ curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/pa
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
 chmod 777 ~/.config/xfce4/panel/launcher-* -R
 sudo su
+wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/motd > /etc/motd
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
