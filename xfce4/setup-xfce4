@@ -1,4 +1,6 @@
 #!/bin/bash
+wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/installer.sh | sudo sh
+
 sudo setup-xorg-base 
 sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin xfce4-notifyd 
 
