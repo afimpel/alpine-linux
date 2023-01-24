@@ -1,4 +1,5 @@
 #!/bin/bash
+wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/installer.sh | sudo sh
 
 sudo setup-xorg-base 
 echo bspwm setup script with lightdm
