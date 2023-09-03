@@ -1,4 +1,9 @@
 #!/bin/bash
+mv /etc/apk/repositories /etc/apk/repositories_old
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+
 apk update 
 apk add nano git mc bash zsh htop neofetch curl btop sudo lsblk
 echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
