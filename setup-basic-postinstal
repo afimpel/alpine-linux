@@ -1,5 +1,7 @@
 #!/bin/bash
 mv /etc/apk/repositories /etc/apk/repositories_old
+mv /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
+
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/main" > /etc/apk/repositories
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
 echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
@@ -13,4 +15,6 @@ curl -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upg
 curl -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff > /usr/bin/upgrade-system-poweroff
 curl -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot > /usr/bin/upgrade-system-reboot
 chmod 777 /usr/bin/upgrade-system* -R
+
+neofetch
 upgrade-system-reboot
