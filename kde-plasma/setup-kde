@@ -24,7 +24,7 @@ curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linu
 curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
 
 echo "**** kde tweaks ****"
-sed -i \
+sudo sed -i \
     's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
     /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
