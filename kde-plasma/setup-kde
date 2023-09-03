@@ -1,0 +1,48 @@
+#!/bin/bash
+sudo setup-xorg-base 
+echo "**** install packages ****" 
+sudo apk add --no-cache firefox dolphin konsole kwrite breeze breeze-gtk breeze-icons kde-gtk-config khotkeys kmenuedit plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings util-linux-misc xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa pulseaudio-utils pavucontrol rofi
+
+sudo rc-update add dbus
+sudo rc-update add lightdm
+sudo rc-update add elogind
+sudo rc-update del networking boot
+sudo rc-update del wpa_supplicant boot
+sudo rc-update add networkmanager
+
+echo "**** application tweaks ****"
+mkdir -p ~/.config/rofi
+
+mkdir -p ~/Desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.desktop > ~/Desktop/github.desktop
+chmod 777 ~/Desktop/github.desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.desktop > ~/Desktop/youtube.desktop
+chmod 777 ~/Desktop/youtube.desktop
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+
+echo "**** kde tweaks ****"
+sed -i \
+    's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
+    /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+
+echo "**** cleanup ****"
+rm -rf /config/.cache /tmp/*
+
+sudo su
+wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
+adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
+mkdir -p /usr/share/backgrounds
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+reboot
+
