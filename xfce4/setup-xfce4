@@ -2,7 +2,7 @@
 
 sudo setup-xorg-base 
 echo "**** install packages ****" 
-sudo apk add xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio pulseaudio-alsa alsa-plugins-pulse xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin xfce4-notifyd 
+sudo apk add --no-cache xfce4 xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio pulseaudio-alsa alsa-plugins-pulse xfce4-pulseaudio-plugin pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox mousepad xcalc rofi xfce4-whiskermenu-plugin xfce4-notifyd 
 
 sudo rc-update add dbus
 sudo rc-update add lightdm
