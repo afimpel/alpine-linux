@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo setup-xorg-base 
 echo "**** install packages ****" 
-sudo apk add --no-cache firefox dolphin konsole kwrite breeze breeze-gtk breeze-icons kde-gtk-config khotkeys kmenuedit plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings util-linux-misc xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio-alsa pulseaudio-utils pavucontrol rofi
+sudo apk add --no-cache firefox dolphin konsole kwrite breeze breeze-gtk breeze-icons kde-gtk-config khotkeys kmenuedit plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings util-linux-misc xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi
 
 sudo rc-update add dbus
 sudo rc-update add lightdm
@@ -44,5 +44,7 @@ curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-l
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+exit
+start-pulseaudio-x11
 reboot
 
