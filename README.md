@@ -19,6 +19,10 @@ Alpine Linux Setup a un solo click.
 
 ``` curl --no-cache -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/setup-bspwm | bash ```
 
+ 2) **KDE PLASMA** >> Configuracion basicas de KDE PLASMA (como usurio comun)
+
+``` curl --no-cache -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/setup-kde | bash ```
+
 2) **XFCE4** >> Configuracion basicas de XFCE4 (como usurio comun) [Video](https://www.youtube.com/watch?v=msdiPYMRpto)
 
 ``` curl --no-cache -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/setup-xfce4 | bash ```
