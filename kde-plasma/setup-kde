@@ -14,14 +14,14 @@ echo "**** application tweaks ****"
 mkdir -p ~/.config/rofi
 
 mkdir -p ~/Desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.desktop > ~/Desktop/github.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.desktop > ~/Desktop/github.desktop
 chmod 777 ~/Desktop/github.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.desktop > ~/Desktop/youtube.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.desktop > ~/Desktop/youtube.desktop
 chmod 777 ~/Desktop/youtube.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
 
 echo "**** kde tweaks ****"
 sed -i \
@@ -33,16 +33,16 @@ rm -rf /config/.cache /tmp/*
 
 sudo su
 wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
 mkdir -p /usr/share/backgrounds
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
 reboot
 

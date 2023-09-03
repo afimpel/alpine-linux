@@ -20,38 +20,38 @@ mkdir -p ~/.config/xfce4/panel/launcher-20
 mkdir -p .local/share/xfce4/helpers/
 
 mkdir -p ~/Desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.desktop > ~/Desktop/github.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.desktop > ~/Desktop/github.desktop
 chmod 777 ~/Desktop/github.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.desktop > ~/Desktop/youtube.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.desktop > ~/Desktop/youtube.desktop
 chmod 777 ~/Desktop/youtube.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
 
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
 chmod 777 ~/.config/xfce4/panel/launcher-* -R
 sudo su
 wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/motd > /etc/motd
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/config/motd > /etc/motd
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-curl https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
 
 mkdir -p /usr/share/backgrounds/xfce
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-1.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-2.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
-curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-1.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-2.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
+curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
 echo "**** cleanup ****"
 rm -rf /config/.cache /tmp/*
 
