@@ -1,5 +1,6 @@
 #!/bin/bash
-apk add nano git mc bash zsh htop neofetch curl btop sudo
+apk update 
+apk add nano git mc bash zsh htop neofetch curl btop sudo lsblk
 echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
 echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*" >> /etc/sudoers.d/wheel
 sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
