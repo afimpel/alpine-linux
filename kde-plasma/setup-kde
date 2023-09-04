@@ -38,5 +38,5 @@ curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-l
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
 exit
 start-pulseaudio-x11
-reboot
+sudo reboot
 
