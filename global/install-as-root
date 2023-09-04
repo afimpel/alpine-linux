@@ -1,0 +1,12 @@
+#!/bin/bash
+mkdir -p /usr/share/pixmaps/
+wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/security/audio.conf > /etc/security/limits.d/audio.conf
+
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/youtube.svg > /usr/share/pixmaps/youtube.svg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/github.svg > /usr/share/pixmaps/github.svg
+curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/alpine.png > /usr/share/pixmaps/alpine.png
+
+chmod 777 /usr/share/pixmaps/* -R
