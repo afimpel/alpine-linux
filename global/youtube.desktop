@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
-Name=youtube afimpel
+Name=youtube afimpel, el Nerd
 Keywords=Internet;WWW;Browser;Web;Explorer
-Exec=firefox https://youtube.com/playlist?list=PLO9gTxFm8ywbVwIki0QZzCAzuRcpUUJ2M&si=bFXkE7j-xxPgv-I9
-Icon=youtube
+Exec=firefox https://www.youtube.com/@afimpelelnerd
+Icon=afimpelelnerd
 Terminal=false
 X-MultipleArgs=false
 Type=Application
