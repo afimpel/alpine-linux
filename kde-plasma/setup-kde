@@ -38,5 +38,5 @@ echo "**** cleanup ****"
 rm -rf /config/.cache/* /tmp/*
 exit
 start-pulseaudio-x11
-sudo reboot
+sudo upgrade-system-reboot
 

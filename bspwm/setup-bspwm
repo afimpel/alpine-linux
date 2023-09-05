@@ -76,4 +76,4 @@ wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/deskt
 # starting lightdm
 echo Starting lightdm
 sudo rc-update add lightdm
-sudo reboot
+sudo upgrade-system-reboot
