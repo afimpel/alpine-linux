@@ -27,3 +27,7 @@ Alpine Linux Setup a un solo click.
 
 ``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/setup-xfce4 | bash ```
 
+2) **GNOME** >> Configuracion basicas de GNOME (como usurio comun) 
+
+``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/gnome/setup-gnome | bash ```
+

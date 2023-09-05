@@ -43,7 +43,7 @@ curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-l
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
 curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
 echo "**** cleanup ****"
-rm -rf /config/.cache /tmp/*
+rm -rf /config/.cache/* /tmp/*
 exit
 start-pulseaudio-x11
 sudo reboot

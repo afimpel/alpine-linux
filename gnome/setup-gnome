@@ -1,30 +1,24 @@
 #!/bin/bash
-sudo setup-xorg-base 
+sudo setup-desktop gnome 
 echo "**** install packages ****" 
 sudo apk add --no-cache \
-    kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
-    dolphin konsole kwrite breeze breeze-gtk breeze-icons util-linux-misc \
-    firefox xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi 
+    pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm gdm gnome-apps-core 
 
 sudo rc-update add dbus
-sudo rc-update add lightdm
+sudo rc-update add gdm
 sudo rc-update add elogind
 sudo rc-update del networking boot
 sudo rc-update del wpa_supplicant boot
 sudo rc-update add networkmanager
+sudo rc-update add openrc-settingsd default
+sudo rc-update add apk-polkit-server default
 
 echo "**** application tweaks ****"
 curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-user | bash
 
-echo "**** kde tweaks ****"
-sudo sed -i \
-    's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
-    /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-
-
 sudo su
 adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
+curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde/motd > /etc/motd
 
 curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-root | bash
 
