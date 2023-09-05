@@ -2,7 +2,8 @@
 sudo setup-desktop gnome 
 echo "**** install packages ****" 
 sudo apk add --no-cache \
-    pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm gdm gnome-apps-core 
+    pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm gdm gnome-apps-core gnome-control-center gnome-backgrounds
+
 
 sudo rc-update add dbus
 sudo rc-update add gdm
