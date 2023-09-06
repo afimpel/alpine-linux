@@ -9,8 +9,8 @@ if [ $UUID == 0 ]; then
     exit 1;
 else
     mkdir -p ~/.config/rofi
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/rofi.rasi > ~/.config/rofi/config.rasi
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/bashrc > ~/.bashrc
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/Xdefaults > ~/.Xdefaults
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/Xresources > ~/.Xresources
 fi

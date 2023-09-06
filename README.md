@@ -11,23 +11,23 @@ Alpine Linux Setup a un solo click.
 
  1) **./setup-basic-postinstal** >> Configuraciones basicas para Alpine (correr como ROOT)
 
-``` wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/main/setup-basic-postinstal | sh ```
+``` wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal | sh ```
 
 ## DESKTOP
 
  2) **BSPWM** >> Configuracion basicas de BSPWM (como usurio comun)
 
-``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/setup-bspwm | bash ```
+``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/setup-bspwm | bash ```
 
  2) **KDE PLASMA** >> Configuracion basicas de KDE PLASMA (como usurio comun)
 
-``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/setup-kde | bash ```
+``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde-plasma/setup-kde | bash ```
 
 2) **XFCE4** >> Configuracion basicas de XFCE4 (como usurio comun) [Video](https://www.youtube.com/watch?v=msdiPYMRpto)
 
-``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/xfce4/setup-xfce4 | bash ```
+``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/setup-xfce4 | bash ```
 
 2) **GNOME** >> Configuracion basicas de GNOME (como usurio comun) 
 
-``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/gnome/setup-gnome | bash ```
+``` curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/gnome/setup-gnome | bash ```
 

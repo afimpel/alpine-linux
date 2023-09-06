@@ -24,20 +24,20 @@ else
     sudo rc-update add apk-polkit-server default
 
     echo "${I_OK}    **** application tweaks ****"
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-user | bash
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-user | bash
 
     sudo su
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde/motd > /etc/motd
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde/motd > /etc/motd
 
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-root | bash
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
 
     mkdir -p /usr/share/backgrounds
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
     exit
