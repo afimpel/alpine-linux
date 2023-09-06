@@ -1,6 +1,16 @@
 #!/bin/bash
-mkdir -p ~/.config/rofi
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
+
+if [ $UUID == 0 ]; then
+    echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
+    exit 1;
+else
+    mkdir -p ~/.config/rofi
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/rofi.rasi > ~/.config/rofi/config.rasi
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/bashrc > ~/.bashrc
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xdefaults > ~/.Xdefaults
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/Xresources > ~/.Xresources
+fi

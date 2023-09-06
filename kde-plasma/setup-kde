@@ -1,42 +1,47 @@
 #!/bin/bash
-sudo setup-xorg-base 
-echo "**** install packages ****" 
-sudo apk add --no-cache \
-    kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
-    dolphin konsole kwrite breeze breeze-gtk breeze-icons util-linux-misc \
-    firefox xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi 
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
 
-sudo rc-update add dbus
-sudo rc-update add lightdm
-sudo rc-update add elogind
-sudo rc-update del networking boot
-sudo rc-update del wpa_supplicant boot
-sudo rc-update add networkmanager
+if [ $UUID == 0 ]; then
+    echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
+    exit 1;
+else
+    sudo setup-xorg-base 
+    echo "${I_OK}    **** install packages ****" 
+    sudo apk add --no-cache \
+        kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
+        dolphin konsole kwrite breeze breeze-gtk breeze-icons util-linux-misc \
+        firefox xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi 
 
-echo "**** application tweaks ****"
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-user | bash
+    sudo rc-update add dbus
+    sudo rc-update add lightdm
+    sudo rc-update add elogind
+    sudo rc-update del networking boot
+    sudo rc-update del wpa_supplicant boot
+    sudo rc-update add networkmanager
 
-echo "**** kde tweaks ****"
-sudo sed -i \
-    's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
-    /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    echo "${I_OK}    **** application tweaks ****"
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-user | bash
 
-
-sudo su
-adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
-
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-root | bash
-
-mkdir -p /usr/share/backgrounds
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
-echo "**** cleanup ****"
-rm -rf /config/.cache/* /tmp/*
-exit
-start-pulseaudio-x11
-sudo upgrade-system-reboot
-
+    echo "${I_OK}    **** kde tweaks ****"
+    sudo sed -i \
+        's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
+        /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
+    sudo su
+    adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/kde-plasma/motd > /etc/motd
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/main/global/install-as-root | bash
+    mkdir -p /usr/share/backgrounds
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+    echo "${I_OK}    **** cleanup ****"
+    rm -rf /config/.cache/* /tmp/*
+    exit
+    start-pulseaudio-x11
+    sudo upgrade-system-reboot
+fi

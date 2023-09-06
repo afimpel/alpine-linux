@@ -1,79 +1,89 @@
 #!/bin/bash
-sudo setup-xorg-base 
-echo bspwm setup script with lightdm
-sudo apk add --no-cache bspwm sxhkd lightdm-gtk-greeter rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox mousepad  xcalc
-# Creates main config directory
-echo Creating config directory
-mkdir ~/.config
-# Creates subdirectories
-echo Creating bspwm, sxhkd, picom and polybar subdirectories
-mkdir ~/.config/bspwm
-mkdir ~/.config/sxhkd
-mkdir ~/.config/picom
-mkdir ~/.config/polybar
-mkdir ~/.config/rofi
-# Creates config files
-sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/motd > /etc/motd
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
 
-#lightdm-gtk-greeter
-echo Configuring lightdm-gtk-greeter
-sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+if [ $UUID == 0 ]; then
+        echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
+        exit 1;
+else
+    sudo setup-xorg-base 
+    echo "${I_OK}    bspwm setup script with lightdm"
+    sudo apk add --no-cache bspwm sxhkd lightdm-gtk-greeter rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox mousepad  xcalc
+    # Creates main config directory
+    echo "${I_OK}    Creating config directory"
+    mkdir ~/.config
+    # Creates subdirectories
+    echo "${I_OK}    Creating bspwm, sxhkd, picom and polybar subdirectories"
+    mkdir ~/.config/bspwm
+    mkdir ~/.config/sxhkd
+    mkdir ~/.config/picom
+    mkdir ~/.config/polybar
+    mkdir ~/.config/rofi
+    # Creates config files
+    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/motd > /etc/motd
 
-#polybar
-echo Creating polybar files
-rm ~/.config/polybar/launch.sh
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
-chmod +x ~/.config/polybar/launch.sh
-rm ~/.config/polybar/config
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config > ~/.config/polybar/config
+    #lightdm-gtk-greeter
+    echo "${I_OK}    Configuring lightdm-gtk-greeter"
+    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
 
-#bspwmrc
-echo Creating bspwmrc config file
-rm ~/.config/bspwm/bspwmrc
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
-chmod +x ~/.config/bspwm/bspwmrc
+    #polybar
+    echo "${I_OK}    Creating polybar files"
+    rm ~/.config/polybar/launch.sh
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
+    chmod +x ~/.config/polybar/launch.sh
+    rm ~/.config/polybar/config
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config > ~/.config/polybar/config
 
-#sxhkdrc
-echo Creating sxhkdrc config file
-rm ~/.config/sxhkd/sxhkdrc
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
+    #bspwmrc
+    echo "${I_OK}    Creating bspwmrc config file"
+    rm ~/.config/bspwm/bspwmrc
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
+    chmod +x ~/.config/bspwm/bspwmrc
 
-#picom.conf
-echo Creating picom.conf config file
-rm ~/.config/picom/picom.conf
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/picom.conf > ~/.config/picom/picom.conf
-rm ~/.config/picom/_picom.conf
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
+    #sxhkdrc
+    echo "${I_OK}    Creating sxhkdrc config file"
+    rm ~/.config/sxhkd/sxhkdrc
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
 
-#config.rasi
-echo Creating rofi config file
-rm ~/.config/rofi/config.rasi
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+    #picom.conf
+    echo "${I_OK}    Creating picom.conf config file"
+    rm ~/.config/picom/picom.conf
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/picom.conf > ~/.config/picom/picom.conf
+    rm ~/.config/picom/_picom.conf
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
 
-#.Xresources
-rm ~/.Xresources
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xresources > ~/.Xresources
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xdefaults > ~/.Xdefaults
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bashrc > ~/.bashrc
+    #config.rasi
+    echo "${I_OK}    Creating rofi config file"
+    rm ~/.config/rofi/config.rasi
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
 
-#.xinitrc
-rm ~/.xinitrc
-curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/xinitrc > ~/.xinitrc
+    #.Xresources
+    rm ~/.Xresources
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xresources > ~/.Xresources
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/Xdefaults > ~/.Xdefaults
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/bashrc > ~/.bashrc
 
-# wallpapers
-echo Downloading wallpapers
-rm ~/.config/bspwm/wallpaper.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > ~/.config/bspwm/wallpaper.jpg
-rm ~/.config/bspwm/wallpaper-1.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > ~/.config/bspwm/wallpaper-1.jpg
-rm ~/.config/bspwm/wallpaper-2.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > ~/.config/bspwm/wallpaper-2.jpg
-rm ~/.config/bspwm/wallpaper-3.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > ~/.config/bspwm/wallpaper-3.jpg
-rm ~/.config/bspwm/wallpaper-4.jpg
-curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > ~/.config/bspwm/wallpaper-4.jpg
-wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sudo sh
-# starting lightdm
-echo Starting lightdm
-sudo rc-update add lightdm
-sudo upgrade-system-reboot
+    #.xinitrc
+    rm ~/.xinitrc
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/main/bspwm/config/xinitrc > ~/.xinitrc
+
+    # wallpapers
+    echo "${I_OK}    Downloading wallpapers"
+    rm ~/.config/bspwm/wallpaper.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper.jpg?raw=true > ~/.config/bspwm/wallpaper.jpg
+    rm ~/.config/bspwm/wallpaper-1.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-1.jpg?raw=true > ~/.config/bspwm/wallpaper-1.jpg
+    rm ~/.config/bspwm/wallpaper-2.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-2.jpg?raw=true > ~/.config/bspwm/wallpaper-2.jpg
+    rm ~/.config/bspwm/wallpaper-3.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-3.jpg?raw=true > ~/.config/bspwm/wallpaper-3.jpg
+    rm ~/.config/bspwm/wallpaper-4.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/main/assets/wallpaper-4.jpg?raw=true > ~/.config/bspwm/wallpaper-4.jpg
+    wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sudo sh
+    # starting lightdm
+    echo "${I_OK}    Starting lightdm"
+    sudo rc-update add lightdm
+    sudo upgrade-system-reboot
+fi
