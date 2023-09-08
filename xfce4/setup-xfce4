@@ -11,7 +11,7 @@ else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin xfce4-notifyd \
-        xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 mousepad xcalc rofi dmenu \
+        xterm lightdm-gtk-greeter mint-y-theme mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad xcalc rofi dmenu \
         pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox 
 
     sudo rc-update add dbus
