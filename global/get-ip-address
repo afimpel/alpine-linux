@@ -1,16 +1,21 @@
-#!/bin/sh
+#!/bin/bash
 # Reset
 Color_Off='\033[0m'       # Text Reset
 Green='\033[0;32m'        # Green
 BGreen='\033[1;32m'       # Green
 BRed='\033[1;31m'         # Red
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
 
 
 myip=$(curl ipecho.net/plain -s)
 
 dates=$(date +'%d.%m.%Y %H:%M')
-echo "\t${BGreen}IP Address : ${Color_Off}"
-echo "\033[1;31mPublic \033[0m: \t\t${myip}"
+echo -e "\t${BGreen}IP Address : ${Color_Off}"
+echo -e "${BRed}Public ${YELLOW}: \t\t${myip}"
 /sbin/ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{
 if ($8 =="noprefixroute")
 	print "\033[1;31m" $9 " \033[0m: \t\t" $2
