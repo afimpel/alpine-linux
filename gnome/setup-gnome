@@ -11,11 +11,10 @@ else
     sudo setup-desktop gnome 
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache \
-        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm gdm gnome-apps-core gnome-control-center gnome-backgrounds
-
+        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm lightdm-gtk-greeter gnome-apps-core gnome-control-center gnome-backgrounds
 
     sudo rc-update add dbus
-    sudo rc-update add gdm
+    sudo rc-update add lightdm
     sudo rc-update add elogind
     sudo rc-update del networking boot
     sudo rc-update del wpa_supplicant boot
@@ -29,15 +28,8 @@ else
     sudo su
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde/motd > /etc/motd
-
     curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
 
-    mkdir -p /usr/share/backgrounds
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
     exit

@@ -10,8 +10,8 @@ if [ $UUID == 0 ]; then
 else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin mousepad xcalc rofi xfce4-whiskermenu-plugin xfce4-notifyd \
-        xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 \
+    sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin xfce4-notifyd \
+        xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 mousepad xcalc rofi dmenu \
         pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox 
 
     sudo rc-update add dbus
@@ -43,13 +43,6 @@ else
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
 
     curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
-
-    mkdir -p /usr/share/backgrounds/xfce
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-1.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-2.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-3.jpg
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/xfce/wallpaper-4.jpg
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
     exit

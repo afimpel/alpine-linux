@@ -19,11 +19,22 @@ else
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/security/audio.conf > /etc/security/limits.d/audio.conf
 
+    echo "${I_OK}    Downloading ICONS"
     curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/youtube.svg > /usr/share/pixmaps/youtube.svg
     curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/github.svg > /usr/share/pixmaps/github.svg
     curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/alpine.png > /usr/share/pixmaps/alpine.png
     curl -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/afimpelelnerd.png > /usr/share/pixmaps/afimpelelnerd.png
 
+    echo "${I_OK}    Downloading wallpapers"
+    mkdir -p /usr/share/backgrounds
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+
+    echo "Install Date: $(date)" >> /etc/motd
+    chmod 777 /usr/share/backgrounds/* -R
     chmod 777 /usr/share/pixmaps/* -R
     chmod 777 /usr/share/applications/my-* -R
 fi
