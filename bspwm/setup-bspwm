@@ -25,9 +25,6 @@ else
     sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/motd > /etc/motd
 
     #lightdm-gtk-greeter
-    echo "${I_OK}    Configuring lightdm-gtk-greeter"
-    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
-
     #polybar
     echo "${I_OK}    Creating polybar files"
     rm ~/.config/polybar/launch.sh

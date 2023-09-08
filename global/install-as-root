@@ -10,7 +10,11 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
+    echo "${I_OK}    Configuring lightdm-gtk-greeter"
+    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+
     mkdir -p /usr/share/pixmaps/
+    adduser $(getent passwd 1000 | cut -d: -f1) plugdev
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/github.desktop > /usr/share/applications/my-github.desktop
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/youtube.desktop > /usr/share/applications/my-youtube.desktop
     wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh

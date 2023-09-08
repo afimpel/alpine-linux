@@ -29,13 +29,10 @@ else
     sudo sed -i \
         's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
-    sudo su
-    adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde-plasma/motd > /etc/motd
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
+    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde-plasma/motd > /etc/motd
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
-    exit
     start-pulseaudio-x11
     sudo upgrade-system-reboot
 fi
