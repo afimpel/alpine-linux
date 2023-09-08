@@ -1,0 +1,34 @@
+#!/bin/sh
+# Reset
+Color_Off='\033[0m'       # Text Reset
+Green='\033[0;32m'        # Green
+BGreen='\033[1;32m'       # Green
+BRed='\033[1;31m'         # Red
+
+
+myip=$(curl ipecho.net/plain -s)
+
+dates=$(date +'%d.%m.%Y %H:%M')
+echo "\t${BGreen}IP Address : ${Color_Off}"
+echo "\033[1;31mPublic \033[0m: \t\t${myip}"
+/sbin/ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{
+if ($8 =="noprefixroute")
+	print "\033[1;31m" $9 " \033[0m: \t\t" $2
+else 
+	if ($7 =="noprefixroute")
+		print "\033[1;31m" $8 " \033[0m: \t\t" $2
+	else 
+		if ($7 =="dynamic")
+			print "\033[1;31m" $8 " \033[0m: \t\t" $2
+		else 
+			if ($7 =="secondary" )
+				print "\033[1;31m" $8 " \033[0m: \t\t" $2
+			else
+				if ($9 =="" )
+					print "\033[1;31m" $7 " \033[0m: \t\t" $2
+				else
+					print "\033[1;31m" $9 " \033[0m: \t\t" $2
+}';
+
+#awk '{ print $9 ": \t " $2 }'
+echo ""
