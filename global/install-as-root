@@ -11,7 +11,7 @@ if [ $UUID != 0 ]; then
         exit 1;
 else
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
-    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
 
     mkdir -p /usr/share/pixmaps/
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
