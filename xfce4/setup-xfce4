@@ -29,7 +29,6 @@ else
     mkdir -p ~/.config/xfce4/panel/launcher-20
     mkdir -p .local/share/xfce4/helpers/
 
-    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfc4/motd > /etc/motd
     curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-user | bash
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
@@ -41,7 +40,10 @@ else
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 ~/.config/xfce4/panel/launcher-* -R
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
+    sudo -i
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/motd > /etc/motd
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
+    exit
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
     start-pulseaudio-x11

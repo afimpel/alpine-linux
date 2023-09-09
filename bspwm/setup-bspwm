@@ -21,8 +21,6 @@ else
     mkdir ~/.config/picom
     mkdir ~/.config/polybar
     mkdir ~/.config/rofi
-    # Creates config files
-    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/motd > /etc/motd
 
     #lightdm-gtk-greeter
     #polybar
@@ -67,7 +65,10 @@ else
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/xinitrc > ~/.xinitrc
 
     # wallpapers
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
+    sudo -i
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/motd > /etc/motd
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
+    exit
     # starting lightdm
     echo "${I_OK}    Starting lightdm"
     sudo rc-update add lightdm

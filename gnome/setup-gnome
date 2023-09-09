@@ -25,8 +25,10 @@ else
     echo "${I_OK}    **** application tweaks ****"
     curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-user | bash
 
-    sudo curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde/motd > /etc/motd
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
+    sudo -i
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/motd > /etc/motd
+    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | bash
+    exit
 
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
