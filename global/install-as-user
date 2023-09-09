@@ -9,6 +9,8 @@ if [ $UUID == 0 ]; then
     exit 1;
 else
     mkdir -p ~/.config/rofi
+    mkdir -p ~/.config/neofetch
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/neofetch.conf > ~/.config/neofetch/config.conf
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/rofi.rasi > ~/.config/rofi/config.rasi
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/bashrc > ~/.bashrc
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/Xdefaults > ~/.Xdefaults

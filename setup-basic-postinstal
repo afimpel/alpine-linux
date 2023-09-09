@@ -48,13 +48,14 @@ else
     echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
     echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*" >> /etc/sudoers.d/wheel
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
-    mkdir -p /etc/neofetch
-    
+
+    mkdir -p ~/.config/neofetch
+    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/neofetch.conf > ~/.config/neofetch/config.conf
+
     curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system > /usr/bin/upgrade-system
     curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff > /usr/bin/upgrade-system-poweroff
     curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot > /usr/bin/upgrade-system-reboot
     curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/get-ip-address > /usr/bin/get-ip-address 
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/neofetch.conf > /etc/neofetch/config.conf
 
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
