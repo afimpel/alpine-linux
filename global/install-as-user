@@ -8,6 +8,7 @@ if [ $UUID == 0 ]; then
     echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
     exit 1;
 else
+    echo "${I_OK}    Configuring user ..."
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/neofetch
     curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/neofetch.conf > ~/.config/neofetch/config.conf
