@@ -60,7 +60,7 @@ else
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
     adduser $(getent passwd 1000 | cut -d: -f1) wheel
-
+    echo "Install Date: $(date)" >> /etc/motd
     neofetch
     upgrade-system-reboot
 fi
