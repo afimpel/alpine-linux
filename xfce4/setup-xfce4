@@ -5,7 +5,7 @@ I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
 
-if [ $UUID == 0 ]; then
+if [ $UUID != 1000 ]; then
     echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
     exit 1;
 else
