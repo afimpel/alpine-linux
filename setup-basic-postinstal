@@ -44,7 +44,7 @@ else
     echo "http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
     apk update 
-    apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion
+    apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal
     echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
     echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*" >> /etc/sudoers.d/wheel
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
