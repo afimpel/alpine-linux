@@ -17,4 +17,7 @@ else
     curl -H 'Pragma: no-cache' ${URLgithub}/global/bashrc > ~/.bashrc
     curl -H 'Pragma: no-cache' ${URLgithub}/global/Xdefaults > ~/.Xdefaults
     curl -H 'Pragma: no-cache' ${URLgithub}/global/Xresources > ~/.Xresources
+    curl -H 'Pragma: no-cache' ${URLgithub}/global/github.desktop > ~/my-github.desktop
+    curl -H 'Pragma: no-cache' ${URLgithub}/global/youtube.desktop > ~/my-youtube.desktop
+    chmod 777 ~/my-* -R
 fi
