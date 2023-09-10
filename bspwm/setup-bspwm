@@ -3,6 +3,7 @@ UUID=$(id -u)
 UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
 
 if [ $UUID == 0 ]; then
         echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
@@ -26,47 +27,47 @@ else
     #polybar
     echo "${I_OK}    Creating polybar files"
     rm ~/.config/polybar/launch.sh
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
     chmod +x ~/.config/polybar/launch.sh
     rm ~/.config/polybar/config
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/config > ~/.config/polybar/config
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/config > ~/.config/polybar/config
 
     #bspwmrc
     echo "${I_OK}    Creating bspwmrc config file"
     rm ~/.config/bspwm/bspwmrc
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
     chmod +x ~/.config/bspwm/bspwmrc
 
     #sxhkdrc
     echo "${I_OK}    Creating sxhkdrc config file"
     rm ~/.config/sxhkd/sxhkdrc
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
 
     #picom.conf
     echo "${I_OK}    Creating picom.conf config file"
     rm ~/.config/picom/picom.conf
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/picom.conf > ~/.config/picom/picom.conf
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/picom.conf > ~/.config/picom/picom.conf
     rm ~/.config/picom/_picom.conf
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
 
     #config.rasi
     echo "${I_OK}    Creating rofi config file"
     rm ~/.config/rofi/config.rasi
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
 
     #.Xresources
     rm ~/.Xresources
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/Xresources > ~/.Xresources
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/Xdefaults > ~/.Xdefaults
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/bashrc > ~/.bashrc
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/Xresources > ~/.Xresources
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/Xdefaults > ~/.Xdefaults
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/bashrc > ~/.bashrc
 
     #.xinitrc
     rm ~/.xinitrc
-    curl -H 'Pragma: no-cache' https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/config/xinitrc > ~/.xinitrc
+    curl -H 'Pragma: no-cache' ${URLgithub}/bspwm/config/xinitrc > ~/.xinitrc
 
     # wallpapers
-    sudo bash -c "curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/motd > /etc/motd"
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
+    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/bspwm/motd > /etc/motd"
+    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
     # starting lightdm
     echo "${I_OK}    Starting lightdm"
     sudo rc-update add lightdm

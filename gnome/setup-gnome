@@ -3,6 +3,7 @@ UUID=$(id -u)
 UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
 
 if [ $UUID == 0 ]; then
     echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
@@ -23,10 +24,10 @@ else
     sudo rc-update add apk-polkit-server default
 
     echo "${I_OK}    **** application tweaks ****"
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-user | bash
+    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-user | bash
 
-    sudo bash -c "curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/alpine-linux/master/gnome/motd > /etc/motd"
-    curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/global/install-as-root | sudo bash
+    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/gnome/motd > /etc/motd"
+    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
