@@ -14,7 +14,7 @@ else
     sudo apk add --no-cache \
         kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
         dolphin konsole kwrite breeze breeze-gtk breeze-icons util-linux-misc \
-        firefox xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi 
+        firefox xterm lightdm-gtk-greeter dbus elogind polkit-elogind gvfs udisks2 pulseaudio alsa-plugins-pulse pulseaudio-alsa pulseaudio-utils pavucontrol rofi dmenu font-fira-code font-ubuntu
 
     sudo rc-update add dbus
     sudo rc-update add lightdm

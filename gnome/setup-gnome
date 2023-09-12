@@ -12,7 +12,7 @@ else
     sudo setup-desktop gnome 
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache \
-        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm lightdm-gtk-greeter gnome-apps-core gnome-control-center gnome-backgrounds
+        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm lightdm-gtk-greeter gnome-apps-core gnome-control-center gnome-backgrounds rofi dmenu font-fira-code font-ubuntu
 
     sudo rc-update add dbus
     sudo rc-update add lightdm
