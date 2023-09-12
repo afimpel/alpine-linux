@@ -11,7 +11,7 @@ Alpine Linux Setup a un solo click.
 
  1) **./setup-basic-postinstal** >> Configuraciones basicas para Alpine (correr como ROOT)
    ```sh
-    wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal | sh ```
+    wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal | sh
    ```
 
 ## DESKTOP
