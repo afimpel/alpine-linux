@@ -42,6 +42,7 @@ else
     curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 ~/.config/xfce4/panel/launcher-* -R
 
+    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/xfce4/motd > /etc/motd"
     curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
