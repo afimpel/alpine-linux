@@ -39,3 +39,9 @@ curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-l
 ```sh
 curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/gnome/setup-gnome | bash
 ```
+
+2) **FLUXBOX** >> Configuracion basicas de FLUXBOX (como usurio comun) 
+
+```sh
+curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-fluxbox | bash
+```

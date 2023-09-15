@@ -1,0 +1,55 @@
+#!/bin/bash
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+
+if [ $UUID != 1000 ]; then
+    echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
+    exit 1;
+else
+    sudo setup-xorg-base 
+    echo "${I_OK}    **** install packages ****" 
+    sudo apk add --no-cache fluxbox feh tint2 spacefm\
+        xterm lightdm-gtk-greeter mint-y-theme mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad xcalc rofi dmenu font-fira-code networkmanager network-manager-applet firefox 
+
+    sudo rc-update add dbus
+    sudo rc-update add lightdm
+    sudo rc-update add elogind
+    sudo rc-update del networking boot
+    sudo rc-update del wpa_supplicant boot
+    sudo rc-update add networkmanager
+
+    echo "${I_OK}    **** application tweaks ****"
+    mkdir -p ~/.fluxbox/
+    mkdir -p ~/script/
+
+    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-user | bash
+    mkdir -p ~/.config/spacefm
+    mkdir -p ~/.config/tint2
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/apps > ~/.fluxbox/apps
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/init > ~/.fluxbox/init
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/keys > ~/.fluxbox/keys
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/lastwallpaper > ~/.fluxbox/lastwallpaper
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/menuconfig > ~/.fluxbox/menuconfig
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/startup > ~/.fluxbox/startup
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/fluxbox/usermenu > ~/.fluxbox/usermenu
+    chmod 777 ~/.fluxbox/* -R
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/script/my-rofi.sh > ~/script/my-rofi.sh
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/script/poweroff.sh > ~/script/poweroff.sh
+    chmod 777 ~/.script/* -R
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/spacefm/session > ~/.config/spacefm/session
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/fluxbox.tint2rc
+    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/tint2rc
+    sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
+    sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
+    sudo chmod 777 /usr/share/xsessions/fluxbox.desktop
+
+    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/fluxbox/motd > /etc/motd"
+    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
+    echo "${I_OK}    **** cleanup ****"
+    rm -rf /config/.cache/* /tmp/*
+    start-pulseaudio-x11
+    sudo upgrade-system-reboot
+fi

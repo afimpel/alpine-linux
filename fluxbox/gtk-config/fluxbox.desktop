@@ -1,0 +1,6 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Fluxbox
+Comment=Fluxbox Window Manager
+Exec=startfluxbox
+Type=Application

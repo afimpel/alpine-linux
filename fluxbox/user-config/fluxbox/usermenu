@@ -1,0 +1,15 @@
+[separator] 
+[exec] (SpaceFM) {spacefm}<spacefm> 
+[exec] (Mousepad) {mousepad}<mousepad> 
+[submenu] (Poweroff)</usr/share/pixmaps/alpine.png>
+      [exec] (Reboot) {sudo reboot}</usr/share/pixmaps/reboot.png>
+      [exec] (Poweroff) {sudo poweroff}</usr/share/pixmaps/shutdown.png>
+      [exec] (Upgrade) {pkexec_upgrade-system}</usr/share/pixmaps/upgrade.png>
+      [exec] (Upgrade and Reboot) {pkexec_upgrade-system-reboot}</usr/share/pixmaps/reboot.png>
+      [exec] (Upgrade and Poweroff) {pkexec_upgrade-system-poweroff}</usr/share/pixmaps/shutdown.png>
+[end]
+[submenu] (REDES)</usr/share/pixmaps/afimpelelnerd.png>
+      [exec] (YouTube: afimpel, el Nerd) {firefox https://www.youtube.com/@afimpelelnerd}</usr/share/pixmaps/youtube.png>
+      [exec] (GitHub: alpine-linux) {firefox https://github.com/afimpel/alpine-linux}</usr/share/pixmaps/github.png>
+[end]
+[separator] 

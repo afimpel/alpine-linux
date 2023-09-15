@@ -1,0 +1,8 @@
+#!/bin/sh
+fluxbox-generate_menu &
+##start-pulseaudio-x11
+#feh --bg-fill /usr/share/backgrounds/wallpaper.jpg &
+tint2 &
+nm-applet &
+xterm &
+exec fluxbox
