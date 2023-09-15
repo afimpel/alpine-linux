@@ -1,6 +1,6 @@
 [Desktop Entry]
 Version=1.0
-Name=youtube afimpel, el Nerd
+Name=YouTube: afimpel, el Nerd
 Keywords=Internet;WWW;Browser;Web;Explorer
 Exec=firefox https://www.youtube.com/@afimpelelnerd
 Icon=afimpelelnerd
@@ -11,5 +11,4 @@ MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme
 StartupNotify=true
 StartupWMClass=firefox
 Categories=Network;WebBrowser;
-Actions=new-window;new-private-window;
 X-XFCE-Source=file:///usr/share/applications/firefox.desktop
