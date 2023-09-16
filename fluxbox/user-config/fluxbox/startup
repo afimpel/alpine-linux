@@ -1,5 +1,5 @@
 #!/bin/sh
-fluxbox-generate_menu &
+fluxbox-generate_menu;
 ##start-pulseaudio-x11
 #feh --bg-fill /usr/share/backgrounds/wallpaper.jpg &
 tint2 &
