@@ -45,12 +45,12 @@ else
     sudo mkdir -p /usr/share/xsessions
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
-    sudo chmod 777 /usr/share/xsessions/fluxbox.desktop
+    sudo chmod 777 /usr/share/xsessions -R
 
     sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/fluxbox/motd > /etc/motd"
     curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
-    start-pulseaudio-x11
+ 
     sudo upgrade-system-reboot
 fi
