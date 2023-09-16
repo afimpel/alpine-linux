@@ -42,6 +42,7 @@ else
     curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/spacefm/session > ~/.config/spacefm/session
     curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/fluxbox.tint2rc
     curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/tint2rc
+    sudo mkdir -p /usr/share/xsessions
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
     sudo chmod 777 /usr/share/xsessions/fluxbox.desktop
