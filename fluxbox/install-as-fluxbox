@@ -10,6 +10,7 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
+    adduser $(getent passwd 1000 | cut -d: -f1) audio
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
     mkdir -p /usr/share/xsessions
     sleep 2s
