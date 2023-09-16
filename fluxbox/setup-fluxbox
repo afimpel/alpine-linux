@@ -43,6 +43,9 @@ else
     curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/fluxbox.tint2rc
     curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/tint2rc
     sudo mkdir -p /usr/share/xsessions
+    sleep 2s
+    echo "${I_OK}    **** GTK Fluxbox ****"
+    echo "${URLgithub}/fluxbox/gtk-config/fluxbox.desktop"
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
     sudo curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
     sudo chmod 777 /usr/share/xsessions -R
