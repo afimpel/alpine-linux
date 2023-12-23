@@ -138,3 +138,7 @@ Control Mod4 F12 :TakeToWorkspace 12
 
 Mod4 r :Exec ~/script/my-rofi.sh
 Mod4 F4 :Exec ~/script/poweroff.sh
+
+XF86AudioLowerVolume: amixer set Master 5%-
+XF86AudioRaiseVolume: amixer set Master 5%+
+XF86AudioMute: amixer set Master toggle
