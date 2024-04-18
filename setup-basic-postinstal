@@ -18,6 +18,7 @@ else
     echo 'server 2.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
     echo 'server 3.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
     echo 'export LANG="es_AR.utf8"' >> /etc/profile
+    rc-update add chronyd default
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
     echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then
 
@@ -33,6 +34,8 @@ else
         fi
 
     fi' > /etc/profile.d/bash-completion.sh
+    echo "service chronyd restart" > /etc/profile.d/update-time.sh
+    service chronyd restart
 
     echo "
     #!/bin/bash
