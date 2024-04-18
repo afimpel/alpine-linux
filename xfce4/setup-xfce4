@@ -30,20 +30,20 @@ else
     mkdir -p ~/.config/xfce4/panel/launcher-20
     mkdir -p .local/share/xfce4/helpers/
 
-    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-user | bash
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/xsettings.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
+    wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
+    wget --no-cache -O - ${URLgithub}/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
+    wget --no-cache -O - ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
+    wget --no-cache -O - ${URLgithub}/xfce4/config/xsettings.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
+    wget --no-cache -O - ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
+    wget --no-cache -O - ${URLgithub}/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
+    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
+    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
+    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
+    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 ~/.config/xfce4/panel/launcher-* -R
 
-    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/xfce4/motd > /etc/motd"
-    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
+    sudo bash -c "wget --no-cache -O - ${URLgithub}/xfce4/motd > /etc/motd"
+    wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
     start-pulseaudio-x11

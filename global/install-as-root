@@ -11,17 +11,17 @@ if [ $UUID != 0 ]; then
         exit 1;
 else
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+    wget --no-cache -O - ${URLgithub}/global/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
 
     mkdir -p /usr/share/pixmaps/
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/github.desktop > /usr/share/applications/my-github.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/youtube.desktop > /usr/share/applications/my-youtube.desktop
+    wget --no-cache -O - ${URLgithub}/global/github.desktop > /usr/share/applications/my-github.desktop
+    wget --no-cache -O - ${URLgithub}/global/youtube.desktop > /usr/share/applications/my-youtube.desktop
     wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
 
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/security/audio.conf > /etc/security/limits.d/audio.conf
+    wget --no-cache -O - ${URLgithub}/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
+    wget --no-cache -O - ${URLgithub}/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
+    wget --no-cache -O - ${URLgithub}/global/security/audio.conf > /etc/security/limits.d/audio.conf
 
     echo "${I_OK}    Downloading ICONS"
     curl -L ${URLgithub}/global/youtube.svg > /usr/share/pixmaps/youtube.svg
@@ -33,11 +33,11 @@ else
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+    wget --no-cache -O - ${URLgithub}/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
+    wget --no-cache -O - ${URLgithub}/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
+    wget --no-cache -O - ${URLgithub}/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
+    wget --no-cache -O - ${URLgithub}/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
+    wget --no-cache -O - ${URLgithub}/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
 
     echo "Install Date: $(date)" >> /etc/motd
     chmod 777 /usr/share/backgrounds/* -R

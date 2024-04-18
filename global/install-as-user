@@ -12,12 +12,12 @@ else
     echo "${I_OK}    Configuring user ..."
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/neofetch
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/global/neofetch.conf > ~/.config/neofetch/config.conf
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/rofi.rasi > ~/.config/rofi/config.rasi
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/bashrc > ~/.bashrc
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/Xdefaults > ~/.Xdefaults
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/Xresources > ~/.Xresources
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/github.desktop > ~/my-github.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/youtube.desktop > ~/my-youtube.desktop
+    wget --no-cache -O - ${URLgithub}/global/neofetch.conf > ~/.config/neofetch/config.conf
+    wget --no-cache -O - ${URLgithub}/global/rofi.rasi > ~/.config/rofi/config.rasi
+    wget --no-cache -O - ${URLgithub}/global/bashrc > ~/.bashrc
+    wget --no-cache -O - ${URLgithub}/global/Xdefaults > ~/.Xdefaults
+    wget --no-cache -O - ${URLgithub}/global/Xresources > ~/.Xresources
+    wget --no-cache -O - ${URLgithub}/global/github.desktop > ~/my-github.desktop
+    wget --no-cache -O - ${URLgithub}/global/youtube.desktop > ~/my-youtube.desktop
     chmod 777 ~/my-* -R
 fi

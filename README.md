@@ -19,29 +19,29 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
  2) **BSPWM** >> Configuracion basicas de BSPWM (como usurio comun)
 
 ```sh
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/setup-bspwm | bash
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/bspwm/setup-bspwm | bash
 ```
 
  2) **KDE PLASMA** >> Configuracion basicas de KDE PLASMA (como usurio comun)
 
 ```sh
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde-plasma/setup-kde | bash
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/kde-plasma/setup-kde | bash
 ```
 
 2) **XFCE4** >> Configuracion basicas de XFCE4 (como usurio comun) [Video](https://www.youtube.com/watch?v=msdiPYMRpto)
 
 ```sh
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/setup-xfce4 | bash
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/xfce4/setup-xfce4 | bash
 ```
 
 2) **GNOME** >> Configuracion basicas de GNOME (como usurio comun) 
 
 ```sh
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/gnome/setup-gnome | bash
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/gnome/setup-gnome | bash
 ```
 
 2) **FLUXBOX** >> Configuracion basicas de FLUXBOX (como usurio comun) 
 
 ```sh
-curl -H 'Pragma: no-cache' -s https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-fluxbox | bash
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-fluxbox | bash
 ```

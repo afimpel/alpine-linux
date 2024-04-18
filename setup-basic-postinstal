@@ -50,12 +50,12 @@ else
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
 
     mkdir -p ~/.config/neofetch
-    curl -H 'Pragma: no-cache' -L ${URLgithub}/global/neofetch.conf > ~/.config/neofetch/config.conf
+    wget --no-cache -O - ${URLgithub}/global/neofetch.conf > ~/.config/neofetch/config.conf
 
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system > /usr/bin/upgrade-system
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff > /usr/bin/upgrade-system-poweroff
-    curl -H 'Pragma: no-cache' -L https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot > /usr/bin/upgrade-system-reboot
-    curl -H 'Pragma: no-cache' ${URLgithub}/global/get-ip-address > /usr/bin/get-ip-address 
+    wget --no-cache -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system > /usr/bin/upgrade-system
+    wget --no-cache -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff > /usr/bin/upgrade-system-poweroff
+    wget --no-cache -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot > /usr/bin/upgrade-system-reboot
+    wget --no-cache -O - ${URLgithub}/global/get-ip-address > /usr/bin/get-ip-address 
 
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R

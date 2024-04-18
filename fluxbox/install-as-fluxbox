@@ -14,8 +14,8 @@ else
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
     mkdir -p /usr/share/xsessions
     sleep 2s
-    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
-    curl -H 'Pragma: no-cache' ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
+    wget --no-cache -O - ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop > /usr/share/xsessions/fluxbox.desktop
+    wget --no-cache -O - ${URLgithub}/fluxbox/gtk-config/lightdm.conf > /etc/lightdm/lightdm.conf
     chmod 777 /usr/share/xsessions -R
     cat /usr/share/xsessions/fluxbox.desktop
 fi

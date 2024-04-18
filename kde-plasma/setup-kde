@@ -24,15 +24,15 @@ else
     sudo rc-update add networkmanager
 
     echo "${I_OK}    **** application tweaks ****"
-    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-user | bash
+    wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
 
     echo "${I_OK}    **** kde tweaks ****"
     sudo sed -i \
         's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
-    sudo bash -c "curl -H 'Pragma: no-cache' -L ${URLgithub}/kde-plasma/motd > /etc/motd"
-    curl -H 'Pragma: no-cache' -s ${URLgithub}/global/install-as-root | sudo bash
+    sudo bash -c "wget --no-cache -O - ${URLgithub}/kde-plasma/motd > /etc/motd"
+    wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
