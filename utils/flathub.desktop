@@ -2,7 +2,7 @@
 Version=1.0
 Name=flathub: The Linux App Store
 Keywords=Internet;WWW;Browser;Web;Explorer
-Exec=firefox https://flathub.org
+Exec=firefox https://flathub.org/es
 Icon=flathub
 Terminal=false
 X-MultipleArgs=false
