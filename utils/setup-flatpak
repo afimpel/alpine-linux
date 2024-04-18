@@ -14,7 +14,7 @@ else
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     wget --no-cache -O - ${URLgithub}/utils/flathub.desktop > ~/flathub.desktop
     sudo wget --no-cache -O - ${URLgithub}/utils/flathub.desktop > /usr/share/applications/flathub.desktop
-    sudo curl -L ${URLgithub}/utils/flathub.png > /usr/share/pixmaps/flathub.png
+    sudo wget --no-cache -O - ${URLgithub}/utils/flathub.png > /usr/share/pixmaps/flathub.png
     sudo chmod 777 /usr/share/pixmaps/* -R
     sudo chmod 777 /usr/share/applications/flathub.desktop -R
     sudo upgrade-system-reboot

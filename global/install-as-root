@@ -24,12 +24,12 @@ else
     wget --no-cache -O - ${URLgithub}/global/security/audio.conf > /etc/security/limits.d/audio.conf
 
     echo "${I_OK}    Downloading ICONS"
-    curl -L ${URLgithub}/global/youtube.svg > /usr/share/pixmaps/youtube.svg
-    curl -L ${URLgithub}/global/github.svg > /usr/share/pixmaps/github.svg
-    curl -L ${URLgithub}/global/youtube.png > /usr/share/pixmaps/youtube.png
-    curl -L ${URLgithub}/global/github.png > /usr/share/pixmaps/github.png
-    curl -L ${URLgithub}/global/alpine.png > /usr/share/pixmaps/alpine.png
-    curl -L ${URLgithub}/global/afimpelelnerd.png > /usr/share/pixmaps/afimpelelnerd.png
+    wget --no-cache -O - ${URLgithub}/global/youtube.svg > /usr/share/pixmaps/youtube.svg
+    wget --no-cache -O - ${URLgithub}/global/github.svg > /usr/share/pixmaps/github.svg
+    wget --no-cache -O - ${URLgithub}/global/youtube.png > /usr/share/pixmaps/youtube.png
+    wget --no-cache -O - ${URLgithub}/global/github.png > /usr/share/pixmaps/github.png
+    wget --no-cache -O - ${URLgithub}/global/alpine.png > /usr/share/pixmaps/alpine.png
+    wget --no-cache -O - ${URLgithub}/global/afimpelelnerd.png > /usr/share/pixmaps/afimpelelnerd.png
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds
