@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=flathub: The Linux App Store
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=firefox https://flathub.org
+Icon=flathub
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+MimeType=text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
+StartupNotify=true
+StartupWMClass=firefox
+Categories=Network;WebBrowser;
+X-XFCE-Source=file:///usr/share/applications/firefox.desktop
