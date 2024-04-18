@@ -45,3 +45,11 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
 ```sh
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-fluxbox | bash
 ```
+
+## UTILS DESKTOP
+
+ 2) **FLATPACK** >> Instalacion de Flatpak (como usurio comun)
+
+```sh
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/utils/setup-flatpak | bash
+```
