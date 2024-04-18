@@ -10,8 +10,9 @@ export LS_OPTIONS='--color=auto';
 
 alias tailf='tail --follow'
 alias ls='ls $LS_OPTIONS'
-alias ll='ls $LS_OPTIONS -lh'
-alias la='ls $LS_OPTIONS -lhA'
+alias dir='lsd'
+alias ll='lsd -lh'
+alias la='lsd -lhA'
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
