@@ -34,18 +34,18 @@ else
     mkdir -p .local/share/xfce4/helpers/
 
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
-    wget --no-cache -O - ${URLgithub}/xfce4/config/helpers.rc > ~/.config/xfce4/helpers.rc
-    wget --no-cache -O - ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop > ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop
-    wget --no-cache -O - ${URLgithub}/xfce4/config/xsettings.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml
-    wget --no-cache -O - ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
-    wget --no-cache -O - ${URLgithub}/xfce4/config/xfce4-panel.xml > ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop > ~/.config/xfce4/panel/launcher-17/firefox.desktop
-    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop > ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop
-    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop > ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
-    wget --no-cache -O - ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop > ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
+    wget --no-cache -O ~/.config/xfce4/helpers.rc ${URLgithub}/xfce4/config/helpers.rc
+    wget --no-cache -O ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop
+    wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ${URLgithub}/xfce4/config/xsettings.xml
+    wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml 
+    wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ${URLgithub}/xfce4/config/xfce4-panel.xml 
+    wget --no-cache -O ~/.config/xfce4/panel/launcher-17/firefox.desktop ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop
+    wget --no-cache -O ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop 
+    wget --no-cache -O ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop ${URLgithub}/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop
+    wget --no-cache -O ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 ~/.config/xfce4/panel/launcher-* -R
 
-    sudo bash -c "wget --no-cache -O - ${URLgithub}/xfce4/motd > /etc/motd"
+    sudo wget --no-cache -O /etc/motd ${URLgithub}/xfce4/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*

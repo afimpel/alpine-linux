@@ -31,7 +31,7 @@ else
         's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
-    sudo bash -c "wget --no-cache -O - ${URLgithub}/kde-plasma/motd > /etc/motd"
+    sudo wget --no-cache -O /etc/motd ${URLgithub}/kde-plasma/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"

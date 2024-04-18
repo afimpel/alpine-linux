@@ -27,46 +27,46 @@ else
     #polybar
     echo "${I_OK}    Creating polybar files"
     rm ~/.config/polybar/launch.sh
-    wget --no-cache -O - ${URLgithub}/bspwm/config/launch.sh > ~/.config/polybar/launch.sh
+    wget --no-cache -O ~/.config/polybar/launch.sh ${URLgithub}/bspwm/config/launch.sh
     chmod +x ~/.config/polybar/launch.sh
     rm ~/.config/polybar/config
-    wget --no-cache -O - ${URLgithub}/bspwm/config/config > ~/.config/polybar/config
+    wget --no-cache -O ~/.config/polybar/config ${URLgithub}/bspwm/config/config
 
     #bspwmrc
     echo "${I_OK}    Creating bspwmrc config file"
     rm ~/.config/bspwm/bspwmrc
-    wget --no-cache -O - ${URLgithub}/bspwm/config/bspwmrc > ~/.config/bspwm/bspwmrc
+    wget --no-cache -O ~/.config/bspwm/bspwmrc ${URLgithub}/bspwm/config/bspwmrc
     chmod +x ~/.config/bspwm/bspwmrc
 
     #sxhkdrc
     echo "${I_OK}    Creating sxhkdrc config file"
     rm ~/.config/sxhkd/sxhkdrc
-    wget --no-cache -O - ${URLgithub}/bspwm/config/sxhkdrc > ~/.config/sxhkd/sxhkdrc
+    wget --no-cache -O ~/.config/sxhkd/sxhkdrc ${URLgithub}/bspwm/config/sxhkdrc 
 
     #picom.conf
     echo "${I_OK}    Creating picom.conf config file"
     rm ~/.config/picom/picom.conf
-    wget --no-cache -O - ${URLgithub}/bspwm/config/picom.conf > ~/.config/picom/picom.conf
+    wget --no-cache -O ~/.config/picom/picom.conf ${URLgithub}/bspwm/config/picom.conf
     rm ~/.config/picom/_picom.conf
-    wget --no-cache -O - ${URLgithub}/bspwm/config/_picom.conf > ~/.config/picom/_picom.conf
+    wget --no-cache -O ~/.config/picom/_picom.conf ${URLgithub}/bspwm/config/_picom.conf
 
     #config.rasi
     echo "${I_OK}    Creating rofi config file"
     rm ~/.config/rofi/config.rasi
-    wget --no-cache -O - ${URLgithub}/bspwm/config/config.rasi > ~/.config/rofi/config.rasi
+    wget --no-cache -O ~/.config/rofi/config.rasi ${URLgithub}/bspwm/config/config.rasi
 
     #.Xresources
     rm ~/.Xresources
-    wget --no-cache -O - ${URLgithub}/bspwm/config/Xresources > ~/.Xresources
-    wget --no-cache -O - ${URLgithub}/bspwm/config/Xdefaults > ~/.Xdefaults
-    wget --no-cache -O - ${URLgithub}/bspwm/config/bashrc > ~/.bashrc
+    wget --no-cache -O ~/.Xresources ${URLgithub}/bspwm/config/Xresources
+    wget --no-cache -O ~/.Xdefaults ${URLgithub}/bspwm/config/Xdefaults
+    wget --no-cache -O ~/.bashrc ${URLgithub}/bspwm/config/bashrc
 
     #.xinitrc
     rm ~/.xinitrc
-    wget --no-cache -O - ${URLgithub}/bspwm/config/xinitrc > ~/.xinitrc
+    wget --no-cache -O ~/.xinitrc ${URLgithub}/bspwm/config/xinitrc
 
     # wallpapers
-    sudo bash -c "wget --no-cache -O - ${URLgithub}/bspwm/motd > /etc/motd"
+    sudo wget --no-cache -O /etc/motd ${URLgithub}/bspwm/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     # starting lightdm
     echo "${I_OK}    Starting lightdm"

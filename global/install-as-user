@@ -12,12 +12,12 @@ else
     echo "${I_OK}    Configuring user ..."
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/neofetch
-    wget --no-cache -O - ${URLgithub}/global/neofetch.conf > ~/.config/neofetch/config.conf
-    wget --no-cache -O - ${URLgithub}/global/rofi.rasi > ~/.config/rofi/config.rasi
-    wget --no-cache -O - ${URLgithub}/global/bashrc > ~/.bashrc
-    wget --no-cache -O - ${URLgithub}/global/Xdefaults > ~/.Xdefaults
-    wget --no-cache -O - ${URLgithub}/global/Xresources > ~/.Xresources
-    wget --no-cache -O - ${URLgithub}/global/github.desktop > ~/my-github.desktop
-    wget --no-cache -O - ${URLgithub}/global/youtube.desktop > ~/my-youtube.desktop
+    wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
+    wget --no-cache -O ~/.config/rofi/config.rasi ${URLgithub}/global/rofi.rasi
+    wget --no-cache -O ~/.bashrc ${URLgithub}/global/bashrc
+    wget --no-cache -O ~/.Xdefaults ${URLgithub}/global/Xdefaults
+    wget --no-cache -O ~/.Xresources ${URLgithub}/global/Xresources
+    wget --no-cache -O ~/my-github.desktop ${URLgithub}/global/github.desktop
+    wget --no-cache -O ~/my-youtube.desktop ${URLgithub}/global/youtube.desktop
     chmod 777 ~/my-* -R
 fi

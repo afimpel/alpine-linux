@@ -16,6 +16,7 @@ else
     sudo wget --no-cache -O /usr/share/applications/flathub.desktop ${URLgithub}/utils/flathub.desktop
     sudo wget --no-cache -O /usr/share/pixmaps/flathub.png ${URLgithub}/utils/flathub.png
     sudo chmod 777 /usr/share/pixmaps/* -R
+    sudo chmod 777 ~/*.desktop -R
     sudo chmod 777 /usr/share/applications/flathub.desktop -R
     sudo upgrade-system-reboot
 fi

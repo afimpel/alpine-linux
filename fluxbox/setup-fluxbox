@@ -29,22 +29,22 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
     mkdir -p ~/.config/spacefm
     mkdir -p ~/.config/tint2
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/apps > ~/.fluxbox/apps
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/init > ~/.fluxbox/init
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/keys > ~/.fluxbox/keys
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/lastwallpaper > ~/.fluxbox/lastwallpaper
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/menuconfig > ~/.fluxbox/menuconfig
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/startup > ~/.fluxbox/startup
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/fluxbox/usermenu > ~/.fluxbox/usermenu
+    wget --no-cache -O ~/.fluxbox/apps ${URLgithub}/fluxbox/user-config/fluxbox/apps
+    wget --no-cache -O ~/.fluxbox/init ${URLgithub}/fluxbox/user-config/fluxbox/init
+    wget --no-cache -O ~/.fluxbox/keys ${URLgithub}/fluxbox/user-config/fluxbox/keys
+    wget --no-cache -O ~/.fluxbox/lastwallpaper ${URLgithub}/fluxbox/user-config/fluxbox/lastwallpaper
+    wget --no-cache -O ~/.fluxbox/menuconfig ${URLgithub}/fluxbox/user-config/fluxbox/menuconfig
+    wget --no-cache -O ~/.fluxbox/startup ${URLgithub}/fluxbox/user-config/fluxbox/startup
+    wget --no-cache -O ~/.fluxbox/usermenu ${URLgithub}/fluxbox/user-config/fluxbox/usermenu
     chmod 777 ~/.fluxbox/* -R
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/script/my-rofi.sh > ~/script/my-rofi.sh
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/script/poweroff.sh > ~/script/poweroff.sh
+    wget --no-cache -O ~/script/my-rofi.sh ${URLgithub}/fluxbox/user-config/script/my-rofi.sh
+    wget --no-cache -O ~/script/poweroff.sh ${URLgithub}/fluxbox/user-config/script/poweroff.sh
     chmod 777 ~/script/* -R
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/config/spacefm/session > ~/.config/spacefm/session
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/fluxbox.tint2rc
-    wget --no-cache -O - ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc > ~/.config/tint2/tint2rc
+    wget --no-cache -O ~/.config/spacefm/session ${URLgithub}/fluxbox/user-config/config/spacefm/session
+    wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
+    wget --no-cache -O ~/.config/tint2/tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     wget --no-cache -O - ${URLgithub}/fluxbox/install-as-fluxbox | sudo bash
-    sudo bash -c "wget --no-cache -O - ${URLgithub}/fluxbox/motd > /etc/motd"
+    sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*

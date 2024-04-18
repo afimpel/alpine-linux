@@ -11,33 +11,33 @@ if [ $UUID != 0 ]; then
         exit 1;
 else
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
-    wget --no-cache -O - ${URLgithub}/global/lightdm-gtk-greeter.conf > /etc/lightdm/lightdm-gtk-greeter.conf
+    wget --no-cache -O /etc/lightdm/lightdm-gtk-greeter.conf ${URLgithub}/global/lightdm-gtk-greeter.conf
 
     mkdir -p /usr/share/pixmaps/
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
-    wget --no-cache -O - ${URLgithub}/global/github.desktop > /usr/share/applications/my-github.desktop
-    wget --no-cache -O - ${URLgithub}/global/youtube.desktop > /usr/share/applications/my-youtube.desktop
+    wget --no-cache -O /usr/share/applications/my-github.desktop ${URLgithub}/global/github.desktop
+    wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/youtube.desktop
     wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
 
-    wget --no-cache -O - ${URLgithub}/global/NetworkManager/NetworkManager.conf > /etc/NetworkManager/NetworkManager.conf 
-    wget --no-cache -O - ${URLgithub}/global/NetworkManager/conf.d/any-user.conf > /etc/NetworkManager/conf.d/any-user.conf
-    wget --no-cache -O - ${URLgithub}/global/security/audio.conf > /etc/security/limits.d/audio.conf
+    wget --no-cache -O /etc/NetworkManager/NetworkManager.conf ${URLgithub}/global/NetworkManager/NetworkManager.conf 
+    wget --no-cache -O /etc/NetworkManager/conf.d/any-user.conf ${URLgithub}/global/NetworkManager/conf.d/any-user.conf
+    wget --no-cache -O /etc/security/limits.d/audio.conf ${URLgithub}/global/security/audio.conf 
 
     echo "${I_OK}    Downloading ICONS"
-    wget --no-cache -O - ${URLgithub}/global/youtube.svg > /usr/share/pixmaps/youtube.svg
-    wget --no-cache -O - ${URLgithub}/global/github.svg > /usr/share/pixmaps/github.svg
-    wget --no-cache -O - ${URLgithub}/global/youtube.png > /usr/share/pixmaps/youtube.png
-    wget --no-cache -O - ${URLgithub}/global/github.png > /usr/share/pixmaps/github.png
-    wget --no-cache -O - ${URLgithub}/global/alpine.png > /usr/share/pixmaps/alpine.png
-    wget --no-cache -O - ${URLgithub}/global/afimpelelnerd.png > /usr/share/pixmaps/afimpelelnerd.png
+    wget --no-cache -O /usr/share/pixmaps/youtube.svg ${URLgithub}/global/youtube.svg
+    wget --no-cache -O /usr/share/pixmaps/github.svg ${URLgithub}/global/github.svg
+    wget --no-cache -O /usr/share/pixmaps/youtube.png ${URLgithub}/global/youtube.png
+    wget --no-cache -O /usr/share/pixmaps/github.png ${URLgithub}/global/github.png
+    wget --no-cache -O /usr/share/pixmaps/alpine.png ${URLgithub}/global/alpine.png
+    wget --no-cache -O /usr/share/pixmaps/afimpelelnerd.png ${URLgithub}/global/afimpelelnerd.png
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds
-    wget --no-cache -O - ${URLgithub}/assets/wallpaper.jpg?raw=true > /usr/share/backgrounds/wallpaper.jpg
-    wget --no-cache -O - ${URLgithub}/assets/wallpaper-1.jpg?raw=true > /usr/share/backgrounds/wallpaper-1.jpg
-    wget --no-cache -O - ${URLgithub}/assets/wallpaper-2.jpg?raw=true > /usr/share/backgrounds/wallpaper-2.jpg
-    wget --no-cache -O - ${URLgithub}/assets/wallpaper-3.jpg?raw=true > /usr/share/backgrounds/wallpaper-3.jpg
-    wget --no-cache -O - ${URLgithub}/assets/wallpaper-4.jpg?raw=true > /usr/share/backgrounds/wallpaper-4.jpg
+    wget --no-cache -O /usr/share/backgrounds/wallpaper.jpg ${URLgithub}/assets/wallpaper.jpg?raw=true
+    wget --no-cache -O /usr/share/backgrounds/wallpaper-1.jpg ${URLgithub}/assets/wallpaper-1.jpg?raw=true
+    wget --no-cache -O /usr/share/backgrounds/wallpaper-2.jpg ${URLgithub}/assets/wallpaper-2.jpg?raw=true
+    wget --no-cache -O /usr/share/backgrounds/wallpaper-3.jpg ${URLgithub}/assets/wallpaper-3.jpg?raw=true
+    wget --no-cache -O /usr/share/backgrounds/wallpaper-4.jpg ${URLgithub}/assets/wallpaper-4.jpg?raw=true
 
     echo "Install Date: $(date)" >> /etc/motd
     chmod 777 /usr/share/backgrounds/* -R
