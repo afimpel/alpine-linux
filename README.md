@@ -48,7 +48,7 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
 
 ## UTILS DESKTOP
 
- 2) **FLATPACK** >> Instalacion de Flatpak (como usurio comun)
+ 3) **FLATPACK** >> Instalacion de Flatpak (como usurio comun)
 
 ```sh
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/utils/setup-flatpak | bash
