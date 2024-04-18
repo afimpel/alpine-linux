@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 
-myip=$(curl ipecho.net/plain -s)
+myip=$(wget --no-cache -O - ipecho.net/plain |more)
 
 dates=$(date +'%d.%m.%Y %H:%M')
 echo -e "\t${BGreen}IP Address : ${Color_Off}"
