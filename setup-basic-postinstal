@@ -13,6 +13,10 @@ else
     cp /etc/apk/repositories /etc/apk/repositories_old
     cp /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
 
+    echo 'server 0.south-america.pool.ntp.org iburst' > /etc/chronyd.conf
+    echo 'server 1.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
+    echo 'server 2.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
+    echo 'server 3.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
     echo 'export LANG="es_AR.utf8"' >> /etc/profile
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
     echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then

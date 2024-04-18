@@ -37,6 +37,7 @@ else
     wget --no-cache -O ~/.config/xfce4/helpers.rc ${URLgithub}/xfce4/config/helpers.rc
     wget --no-cache -O ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ${URLgithub}/xfce4/config/xsettings.xml
+    wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml ${URLgithub}/xfce4/config/keyboard-layout.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ${URLgithub}/xfce4/config/xfce4-panel.xml 
     wget --no-cache -O ~/.config/xfce4/panel/launcher-17/firefox.desktop ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop
