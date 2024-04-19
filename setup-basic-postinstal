@@ -34,7 +34,7 @@ else
         fi
 
     fi' > /etc/profile.d/bash-completion.sh
-    echo "service chronyd restart" > /etc/profile.d/update-time.sh
+    #echo "sudo update-time" > /etc/profile.d/update-time.sh
     service chronyd restart
 
     echo "
@@ -55,7 +55,7 @@ else
     apk update 
     apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal openssl
     echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
-    echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*" >> /etc/sudoers.d/wheel
+    echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*, /usr/bin/update-*" >> /etc/sudoers.d/wheel
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
 
     mkdir -p ~/.config/neofetch
@@ -65,9 +65,11 @@ else
     wget --no-cache -O /usr/bin/upgrade-system-poweroff https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff 
     wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
+    wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time 
 
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
+    chmod 777 /usr/bin/update-t* -R
     adduser $(getent passwd 1000 | cut -d: -f1) wheel
     echo "Install Date: $(date)" >> /etc/motd
     neofetch
