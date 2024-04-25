@@ -15,12 +15,12 @@ else
     wget --no-cache -O ~/flathub.desktop ${URLgithub}/utils/flathub.desktop
     sudo wget --no-cache -O /usr/share/applications/flathub.desktop ${URLgithub}/utils/flathub.desktop
     sudo wget --no-cache -O /usr/share/pixmaps/flathub.png ${URLgithub}/utils/flathub.png
+    ln -s /var/lib/flatpak/exports/share/icons ~/.local/share/icons
+    ln -s /var/lib/flatpak/exports/share/applications ~/.local/share/applications
+    flatpak install flathub com.github.tchx84.Flatseal -y
     sudo chmod 777 /usr/share/pixmaps/* -R
     sudo chmod 777 ~/*.desktop -R
     sudo chmod 777 /var/lib/flatpak/exports/share/ -R
     sudo chmod 777 /usr/share/applications/flathub.desktop -R
-    ln -s /var/lib/flatpak/exports/share/icons ~/.local/share/icons
-    ln -s /var/lib/flatpak/exports/share/applications ~/.local/share/applications
-    flatpak install flathub com.github.tchx84.Flatseal -y
     sudo upgrade-system-reboot
 fi
