@@ -11,8 +11,8 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-desktop gnome 
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache \
-        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager network-manager-applet firefox  elogind polkit-elogind gvfs udisks2 xterm lightdm-gtk-greeter gnome-apps-core gnome-control-center gnome-backgrounds rofi dmenu font-fira-code font-ubuntu
+    sudo apk add --no-cache gnome-apps-core gnome-control-center gnome-backgrounds
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
 
     sudo rc-update add dbus
     sudo rc-update add lightdm

@@ -1,0 +1,19 @@
+#!/bin/bash
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+
+NC='\e[0m'
+if [ $UUID != 0 ]; then
+        echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
+        exit 1;
+else
+    echo "${I_OK}    Install base desktop"
+    sudo apk add --no-cache xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme\
+    mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
+    dmenu font-fira-code font-ubuntu pulseaudio pulseaudio-alsa alsa-plugins-pulse\
+    pulseaudio-utils pavucontrol networkmanager-wifi networkmanager networkmanager-lang\
+    network-manager-applet firefox sshpass btop
+fi

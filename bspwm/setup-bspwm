@@ -11,7 +11,7 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-xorg-base 
     echo "${I_OK}    bspwm setup script with lightdm"
-    sudo apk add --no-cache bspwm sxhkd lightdm-gtk-greeter rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox mousepad pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol xcalc
+    sudo apk add --no-cache bspwm sxhkd rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme  mint-y-icons udisks2 mousepad mousepad-lang xcalc pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol 
     # Creates main config directory
     echo "${I_OK}    Creating config directory"
     mkdir ~/.config

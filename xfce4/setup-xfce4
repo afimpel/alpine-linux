@@ -11,9 +11,11 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-xorg-base
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin-lang  xfce4-whiskermenu-plugin xfce4-notifyd  xfce4-notifyd-lang xfce4-pulseaudio-plugin-lang xfce4-taskmanager xfce4-taskmanager-lang xfce4-power-manager-lang xfce4-panel-lang\
-        xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi dmenu font-fira-code font-ubuntu\
-        pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol networkmanager-wifi networkmanager networkmanager-lang network-manager-applet firefox thunar-lang 
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+
+    sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin-lang\
+      xfce4-whiskermenu-plugin xfce4-notifyd  xfce4-notifyd-lang xfce4-pulseaudio-plugin-lang\
+      xfce4-taskmanager xfce4-taskmanager-lang xfce4-power-manager-lang xfce4-panel-lang thunar-lang
 
     sudo adduser $(getent passwd 1000 | cut -d: -f1) audio
     sudo addgroup root audio

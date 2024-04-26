@@ -11,8 +11,11 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache fluxbox feh tint2 spacefm alsa-utils alsaconf\
-        xterm lightdm-gtk-greeter mint-y-theme mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad xcalc rofi dmenu font-fira-code networkmanager network-manager-applet firefox 
+    sudo apk add --no-cache fluxbox feh tint2 spacefm spacefm-lang alsa-utils alsaconf\
+        xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme\
+        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
+        dmenu font-fira-code networkmanager-wifi networkmanager networkmanager-lang\
+        network-manager-applet firefox 
 
     sudo rc-update add dbus
     sudo rc-update add lightdm
