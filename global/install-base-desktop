@@ -14,6 +14,6 @@ else
     sudo apk add --no-cache xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme\
     mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
     dmenu font-fira-code font-ubuntu pulseaudio pulseaudio-alsa alsa-plugins-pulse\
-    pulseaudio-utils pavucontrol networkmanager-wifi networkmanager networkmanager-lang\
+    pulseaudio-utils pavucontrol networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang\
     network-manager-applet firefox sshpass btop
 fi
