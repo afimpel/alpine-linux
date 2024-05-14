@@ -72,8 +72,8 @@ else
     mkdir -p ~/.config/neofetch
     wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
 
-    wget --no-cache -O locate.json 'https://ipapi.co/json/'
-    languages=$(jq .languages locate.json -r | cut -d, -f1)
+    wget --no-cache -O /tmp/locate.json 'https://ipapi.co/json/'
+    languages=$(jq .languages /tmp/locate.json -r | cut -d, -f1)
     echo "${I_OK}    Language: ${languages/-/_}";
     echo "export LANG='${languages/-/_}.utf8'" >> /etc/profile
 
@@ -90,6 +90,7 @@ else
     chmod 777 /usr/bin/update-t* -R
     
     wget --no-cache -O /etc/motd ${URLgithub}/global/motd
+    echo "Language: ${languages/-/_}" >> /etc/motd
     echo "Install Date: $(date)" >> /etc/motd
     neofetch
     echo "${I_OK}    END: $(date)"
