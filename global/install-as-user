@@ -17,6 +17,7 @@ else
     wget --no-cache -O ~/.bashrc ${URLgithub}/global/bashrc
     wget --no-cache -O ~/.Xdefaults ${URLgithub}/global/Xdefaults
     wget --no-cache -O ~/.Xresources ${URLgithub}/global/Xresources
+    wget --no-cache -O ~/my-afimpelelnerd.desktop ${URLgithub}/global/afimpelelnerd.desktop
     wget --no-cache -O ~/my-github.desktop ${URLgithub}/global/github.desktop
     wget --no-cache -O ~/my-youtube.desktop ${URLgithub}/global/youtube.desktop
     chmod 777 ~/my-* -R

@@ -16,8 +16,9 @@ else
     mkdir -p /usr/share/pixmaps/
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
     wget --no-cache -O /usr/share/applications/my-github.desktop ${URLgithub}/global/github.desktop
+    wget --no-cache -O /usr/share/applications/my-afimpelelnerd.desktop ${URLgithub}/global/afimpelelnerd.desktop
     wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/youtube.desktop
-    wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/desktop/Desktop/cli.sh | sh
+    wget  -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/Desktop/cli.sh | sh
 
     wget --no-cache -O /etc/NetworkManager/NetworkManager.conf ${URLgithub}/global/NetworkManager/NetworkManager.conf 
     wget --no-cache -O /etc/NetworkManager/conf.d/any-user.conf ${URLgithub}/global/NetworkManager/conf.d/any-user.conf

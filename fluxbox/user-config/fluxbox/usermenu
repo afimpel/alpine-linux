@@ -1,4 +1,5 @@
 [submenu] (REDES)</usr/share/pixmaps/afimpelelnerd.png>
+      [exec] (WWW: afimpel, el Nerd) {firefox https://nerd.afimpel.com}</usr/share/pixmaps/afimpelelnerd.png>
       [exec] (YouTube: afimpel, el Nerd) {firefox https://www.youtube.com/@afimpelelnerd}</usr/share/pixmaps/youtube.png>
       [exec] (GitHub: alpine-linux) {firefox https://github.com/afimpel/alpine-linux}</usr/share/pixmaps/github.png>
 [end]

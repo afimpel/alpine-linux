@@ -1,9 +1,9 @@
 [Desktop Entry]
 Version=1.0
-Name=afimpel: alpine-linux ( GitHub )
+Name=afimpel, el Nerd ( WWW )
 Keywords=Internet;WWW;Browser;Web;Explorer
-Exec=firefox https://github.com/afimpel/alpine-linux
-Icon=github
+Exec=firefox https://nerd.afimpel.com
+Icon=afimpelelnerd
 Terminal=false
 X-MultipleArgs=false
 Type=Application
