@@ -10,11 +10,11 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
-    echo "${I_KO}    BACKUP: Repositories"
+    echo "${I_OK}    BACKUP: Repositories"
     cp /etc/apk/repositories /etc/apk/repositories_old
     mv /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
 
-    echo "${I_KO}    SSH: ROOT Login"
+    echo "${I_OK}    SSH: ROOT Login"
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
     echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then
 
@@ -32,7 +32,7 @@ else
     fi' > /etc/profile.d/bash-completion.sh
     #echo "sudo update-time" > /etc/profile.d/update-time.sh
 
-    echo "${I_KO}    POOL: NTP"
+    echo "${I_OK}    POOL: NTP"
     echo 'server 0.south-america.pool.ntp.org iburst' > /etc/chronyd.conf
     echo 'server 1.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
     echo 'server 2.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
@@ -53,7 +53,7 @@ else
     chmod 777 /etc/profile.d/*.sh
     url=$(more /etc/apk/repositories | grep http | head -n 1)
     repositories_url="${url%/*/*}"
-    echo "${I_KO}    Repositories: ${repositories_url}/edge | { main, community & testing }"
+    echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
     echo "${repositories_url}/edge/main" > /etc/apk/repositories
     echo "${repositories_url}/edge/community" >> /etc/apk/repositories
     echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
@@ -61,20 +61,20 @@ else
     apk update 
     apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal openssl jq
 
-    echo "${I_KO}    SUDO: SET Group: WHEEL"
+    echo "${I_OK}    SUDO: SET Group: WHEEL"
     adduser $(getent passwd 1000 | cut -d: -f1) wheel
     echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
     echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*, /usr/bin/update-*" >> /etc/sudoers.d/wheel
-    echo "${I_KO}    CHANGE: ASH to BASH"
+    echo "${I_OK}    CHANGE: ASH to BASH"
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
 
-    echo "${I_KO}    SET: Neofetch"
+    echo "${I_OK}    SET: Neofetch"
     mkdir -p ~/.config/neofetch
     wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
 
     wget --no-cache -O locate.json 'https://ipapi.co/json/'
     languages=$(jq .languages locate.json -r | cut -d, -f1)
-    echo "${I_KO}    Language: ${languages/-/_}";
+    echo "${I_OK}    Language: ${languages/-/_}";
     echo "export LANG='${languages/-/_}.utf8'" >> /etc/profile
 
 
@@ -84,12 +84,13 @@ else
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
 
-    echo "${I_KO}    SET: Chmod 777"
+    echo "${I_OK}    SET: Chmod 777"
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
     chmod 777 /usr/bin/update-t* -R
 
     echo "Install Date: $(date)" >> /etc/motd
     neofetch
+    echo "${I_OK}    END: $(date)"
     upgrade-system-reboot
 fi
