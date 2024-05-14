@@ -10,6 +10,7 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
+    fastfetch
     echo "${I_OK}    Install base desktop"
     sudo apk add --no-cache xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme\
     mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
