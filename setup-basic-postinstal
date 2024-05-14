@@ -88,7 +88,8 @@ else
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
     chmod 777 /usr/bin/update-t* -R
-
+    
+    wget --no-cache -O /etc/motd ${URLgithub}/global/motd
     echo "Install Date: $(date)" >> /etc/motd
     neofetch
     echo "${I_OK}    END: $(date)"
