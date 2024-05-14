@@ -92,7 +92,7 @@ else
     wget --no-cache -O /etc/motd ${URLgithub}/global/motd
     echo "Language: ${languages/-/_}" >> /etc/motd
     echo "Install Date: $(date)" >> /etc/motd
-    fastfetch
+    neofetch
     echo "${I_OK}    END: $(date)"
     upgrade-system-reboot
 fi
