@@ -38,8 +38,8 @@ else
     echo 'server 2.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
     echo 'server 3.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
 
-    rc-update add chronyd default
-    service chronyd restart
+    rc-update add crond default
+    service crond restart
 
     echo "
     #!/bin/bash
