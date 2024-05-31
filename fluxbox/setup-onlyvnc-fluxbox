@@ -14,8 +14,8 @@ else
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang\
         xterm mint-y-theme adwaita-icon-theme supervisor dmenu rofi\
-        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc\
-        font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts firefox 
+        mint-y-icons mousepad mousepad-lang xcalc firefox xsetroot dbus-x11 x11vnc xvfb\
+        font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts 
 
     echo "${I_OK}    **** application tweaks ****"
     mkdir -p ~/.fluxbox/
@@ -44,6 +44,7 @@ else
     sudo wget --no-cache -O /etc/supervisord.conf ${URLgithub}/fluxbox/supervisord.conf
     sudo sed -i "s/CHANGEUSER/${username}/g" /etc/supervisord.conf
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
+  
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*
  
