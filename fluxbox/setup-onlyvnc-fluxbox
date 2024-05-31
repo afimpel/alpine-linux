@@ -13,10 +13,9 @@ else
     echo $username;
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang\
-        xterm mint-y-theme adwaita-icon-theme\
-        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
-        dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts networkmanager-wifi networkmanager networkmanager-lang\
-        network-manager-applet firefox 
+        xterm mint-y-theme adwaita-icon-theme supervisor dmenu rofi\
+        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc\
+        font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts firefox 
 
     echo "${I_OK}    **** application tweaks ****"
     mkdir -p ~/.fluxbox/
