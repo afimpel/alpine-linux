@@ -27,6 +27,7 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
 
     sudo wget --no-cache -O /etc/motd ${URLgithub}/gnome/motd
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"

@@ -46,6 +46,12 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-fluxbox | bash
 ```
 
+2) **FLUXBOX-VNC** >> Configuracion basicas de FLUXBOX + VNC REMOTA (como usurio comun) (Proximamente Video ...)
+
+```sh
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/fluxbox/setup-onlyvnc-fluxbox | bash
+```
+
 ## UTILS DESKTOP
 
  3) **FLATPACK** >> Instalacion de Flatpak (como usurio comun)

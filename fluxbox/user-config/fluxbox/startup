@@ -1,8 +1,9 @@
 #!/bin/sh
-fluxbox-generate_menu;
+fluxbox-generate_menu -ds;
+xsetroot -cursor_name left_ptr;
+xrdb -merge $HOME/.Xresources &
 ##start-pulseaudio-x11
 #feh --bg-fill /usr/share/backgrounds/wallpaper.jpg &
 tint2 &
 nm-applet &
-xterm &
 exec fluxbox

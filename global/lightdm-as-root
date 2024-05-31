@@ -1,0 +1,15 @@
+#!/bin/bash
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+
+NC='\e[0m'
+if [ $UUID != 0 ]; then
+        echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
+        exit 1;
+else
+    echo "${I_OK}    Configuring lightdm-gtk-greeter"
+    wget --no-cache -O /etc/lightdm/lightdm-gtk-greeter.conf ${URLgithub}/global/lightdm-gtk-greeter.conf
+fi

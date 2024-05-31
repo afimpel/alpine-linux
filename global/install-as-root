@@ -10,11 +10,9 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
-    echo "${I_OK}    Configuring lightdm-gtk-greeter"
-    wget --no-cache -O /etc/lightdm/lightdm-gtk-greeter.conf ${URLgithub}/global/lightdm-gtk-greeter.conf
-
     mkdir -p /usr/share/pixmaps/
     adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+    echo "${I_OK}    ADD: Toolkit"
     wget --no-cache -O /usr/share/applications/my-github.desktop ${URLgithub}/global/github.desktop
     wget --no-cache -O /usr/share/applications/my-afimpelelnerd.desktop ${URLgithub}/global/afimpelelnerd.desktop
     wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/youtube.desktop

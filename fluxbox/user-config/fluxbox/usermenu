@@ -4,7 +4,7 @@
       [exec] (GitHub: alpine-linux) {firefox https://github.com/afimpel/alpine-linux}</usr/share/pixmaps/github.png>
 [end]
 [separator] 
-[exec] (SpaceFM) {spacefm}<spacefm> 
+[exec] (pcmanfm) {pcmanfm}<pcmanfm> 
 [exec] (Mousepad) {mousepad}<mousepad> 
 [submenu] (Poweroff)</usr/share/pixmaps/alpine.png>
       [exec] (Reboot) {sudo reboot}</usr/share/pixmaps/reboot.png>

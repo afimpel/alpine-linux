@@ -16,8 +16,20 @@ else
 
     echo "${I_OK}    SSH: ROOT Login"
     echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
-    echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then
 
+    echo "${I_OK}    BASH: Alias"
+    echo "
+    #!/bin/bash
+    export LS_OPTIONS='--color=auto';
+    alias tailf='tail --follow'
+    alias ls='ls $LS_OPTIONS'
+    alias dir='lsd'
+    alias ll='lsd -lh'
+    alias la='lsd -lhA'
+    " > /etc/profile.d/alias-completion.sh
+
+    echo "${I_OK}    BASH: Completion"
+    echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then
         # Check for recent enough version of bash.
         if [ "${BASH_VERSINFO[0]}" -gt 4 ] ||
             [ "${BASH_VERSINFO[0]}" -eq 4 -a "${BASH_VERSINFO[1]}" -ge 2 ]; then
@@ -28,9 +40,7 @@ else
                 . /usr/share/bash-completion/bash_completion
             fi
         fi
-
     fi' > /etc/profile.d/bash-completion.sh
-    #echo "sudo update-time" > /etc/profile.d/update-time.sh
 
     echo "${I_OK}    POOL: NTP"
     echo 'server 0.south-america.pool.ntp.org iburst' > /etc/chronyd.conf
@@ -41,16 +51,6 @@ else
     rc-update add crond default
     service crond restart
 
-    echo "
-    #!/bin/bash
-    export LS_OPTIONS='--color=auto';
-    alias tailf='tail --follow'
-    alias ls='ls $LS_OPTIONS'
-    alias dir='lsd'
-    alias ll='lsd -lh'
-    alias la='lsd -lhA'
-    " > /etc/profile.d/alias-completion.sh
-    chmod 777 /etc/profile.d/*.sh
     url=$(more /etc/apk/repositories | grep http | head -n 1)
     repositories_url="${url%/*/*}"
     echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
@@ -74,25 +74,25 @@ else
 
     wget --no-cache -O /tmp/locate.json 'https://ipapi.co/json/'
     languages=$(jq .languages /tmp/locate.json -r | cut -d, -f1)
-    echo "${I_OK}    Language: ${languages/-/_}";
+    echo "${I_OK}    SET: Language: ${languages/-/_}";
     echo "export LANG='${languages/-/_}.utf8'" >> /etc/profile
 
 
+    echo "${I_OK}    ADD: Toolkit"
     wget --no-cache -O /usr/bin/upgrade-system https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system 
     wget --no-cache -O /usr/bin/upgrade-system-poweroff https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff 
     wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
 
-    echo "${I_OK}    SET: Chmod 777"
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
     chmod 777 /usr/bin/update-t* -R
+    chmod 777 /etc/profile.d/*.sh
     
     wget --no-cache -O /etc/motd ${URLgithub}/global/motd
     echo "Language: ${languages/-/_}" >> /etc/motd
     echo "Install Date: $(date)" >> /etc/motd
-    neofetch
     echo "${I_OK}    END: $(date)"
     upgrade-system-reboot
 fi

@@ -4,26 +4,19 @@ UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+username=$(getent passwd 1000 | cut -d: -f1)
 
 if [ $UUID != 1000 ]; then
     echo "${I_KO}    Start the Script as '$(getent passwd 1000 | cut -d: -f1)' for it to work properly    ${I_KO}";
     exit 1;
 else
-    sudo setup-xorg-base 
+    echo $username;
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang alsa-utils alsaconf\
-        xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme adwaita-icon-theme\
+    sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang\
+        xterm mint-y-theme adwaita-icon-theme\
         mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
         dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts networkmanager-wifi networkmanager networkmanager-lang\
         network-manager-applet firefox 
-
-    sudo rc-update add dbus
-    sudo rc-update add lightdm
-    sudo rc-update add elogind
-    sudo rc-update del networking boot
-    sudo rc-update del wpa_supplicant boot
-    sudo rc-update add networkmanager
-    sudo rc-update add alsa
 
     echo "${I_OK}    **** application tweaks ****"
     mkdir -p ~/.fluxbox/
@@ -48,9 +41,9 @@ else
     wget --no-cache -O ~/.config/gtk-3.0/settings.ini ${URLgithub}/fluxbox/user-config/config/gtk-3.0/settings.ini
     wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     wget --no-cache -O ~/.config/tint2/tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
-    wget --no-cache -O - ${URLgithub}/fluxbox/install-as-fluxbox | sudo bash
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd
+    sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd-vnc
+    sudo wget --no-cache -O /etc/supervisord.conf ${URLgithub}/fluxbox/supervisord.conf
+    sudo sed -i "s/CHANGEUSER/${username}/g" /etc/supervisord.conf
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*

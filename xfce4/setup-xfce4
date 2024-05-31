@@ -49,6 +49,7 @@ else
     chmod 777 ~/.config/xfce4/panel/launcher-* -R
 
     sudo wget --no-cache -O /etc/motd ${URLgithub}/xfce4/motd
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rf /config/.cache/* /tmp/*

@@ -32,6 +32,7 @@ else
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
     sudo wget --no-cache -O /etc/motd ${URLgithub}/kde-plasma/motd
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"

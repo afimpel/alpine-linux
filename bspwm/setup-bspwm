@@ -67,6 +67,7 @@ else
 
     # wallpapers
     sudo wget --no-cache -O /etc/motd ${URLgithub}/bspwm/motd
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     # starting lightdm
     echo "${I_OK}    Starting lightdm"
