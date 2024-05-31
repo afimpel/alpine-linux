@@ -12,7 +12,7 @@ if [ $UUID != 1000 ]; then
 else
     echo $username;
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang\
+    sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang xrdb\
         xterm mint-y-theme adwaita-icon-theme supervisor dmenu rofi\
         mint-y-icons mousepad mousepad-lang xcalc firefox xsetroot dbus-x11 x11vnc xvfb\
         font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts 
