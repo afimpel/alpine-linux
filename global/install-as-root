@@ -18,9 +18,12 @@ else
     wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/youtube.desktop
     wget --no-cache -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/Desktop/cli.sh | sh
 
-    wget --no-cache -O /etc/NetworkManager/NetworkManager.conf ${URLgithub}/global/NetworkManager/NetworkManager.conf 
-    wget --no-cache -O /etc/NetworkManager/conf.d/any-user.conf ${URLgithub}/global/NetworkManager/conf.d/any-user.conf
-    wget --no-cache -O /etc/security/limits.d/audio.conf ${URLgithub}/global/security/audio.conf 
+    variable=$(nmcli -v)
+    if [ -n "$variable" ]; then
+        wget --no-cache -O /etc/NetworkManager/NetworkManager.conf ${URLgithub}/global/NetworkManager/NetworkManager.conf 
+        wget --no-cache -O /etc/NetworkManager/conf.d/any-user.conf ${URLgithub}/global/NetworkManager/conf.d/any-user.conf
+        wget --no-cache -O /etc/security/limits.d/audio.conf ${URLgithub}/global/security/audio.conf 
+    fi
 
     echo "${I_OK}    Downloading ICONS"
     wget --no-cache -O /usr/share/pixmaps/youtube.svg ${URLgithub}/global/youtube.svg
