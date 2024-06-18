@@ -59,3 +59,10 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
 ```sh
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/utils/setup-flatpak | bash
 ```
+
+------
+
+ 1) **./setup-basic-postinstal-lxc** >> Configuraciones basicas para Alpine LXC (Proxmox)
+```sh
+wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal-lxc | sh
+```
