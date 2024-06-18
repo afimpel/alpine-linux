@@ -9,6 +9,7 @@ antes que correr caulquier script seguir paso a paso este video:
 # alpine-linux
 Alpine Linux Setup a un solo click.
 
+## BASIC
  1) **./setup-basic-postinstal** >> Configuraciones basicas para Alpine (correr como ROOT)
 ```sh
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal | sh
@@ -62,6 +63,12 @@ wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/mast
 
 ------
 
+# alpine-linux LXC (Proxmox) 
+[INSTALL](https://tteck.github.io/Proxmox/#alpine-lxc) 
+
+Alpine Linux Setup a un solo click.
+
+## BASIC
  1) **./setup-basic-postinstal-lxc** >> Configuraciones basicas para Alpine LXC (Proxmox)
 ```sh
 wget --no-cache -O - https://raw.githubusercontent.com/afimpel/alpine-linux/master/setup-basic-postinstal-lxc | sh
