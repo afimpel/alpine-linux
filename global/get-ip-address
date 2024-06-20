@@ -4,6 +4,14 @@ Color_Off='\033[0m'       # Text Reset
 Green='\033[0;32m'        # Green
 BGreen='\033[1;32m'       # Green
 BRed='\033[1;31m'         # Red
+BBlue='\e[1;34m'          # Blue
+
+# Bold High Intensity
+BIGreen='\e[1;92m'        # Green
+BIBlue='\e[1;94m'         # Blue
+BIRed='\e[1;94m'          # Red
+BICyan='\e[1;96m'         # Cyan
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -11,29 +19,36 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 
-myip=$(wget --no-cache -O - ipecho.net/plain |more)
-
-dates=$(date +'%d.%m.%Y %H:%M')
-echo -e "\t${BGreen}IP Address : ${Color_Off}"
-echo -e "${BRed}Public ${YELLOW}: \t\t${myip}"
-/sbin/ip addr show | grep 'inet ' | grep -v '127.0.0.1' | awk '{
-if ($8 =="noprefixroute")
-	print "\033[1;31m" $9 " \033[0m: \t\t" $2
-else 
-	if ($7 =="noprefixroute")
-		print "\033[1;31m" $8 " \033[0m: \t\t" $2
-	else 
-		if ($7 =="dynamic")
-			print "\033[1;31m" $8 " \033[0m: \t\t" $2
-		else 
-			if ($7 =="secondary" )
-				print "\033[1;31m" $8 " \033[0m: \t\t" $2
-			else
-				if ($9 =="" )
-					print "\033[1;31m" $7 " \033[0m: \t\t" $2
-				else
-					print "\033[1;31m" $9 " \033[0m: \t\t" $2
-}';
-
-#awk '{ print $9 ": \t " $2 }'
-echo ""
+UUID=$(id | cut -d '=' -f 2 | cut -d '(' -f 1)
+colorUser00=$BGreen         
+colorUser=$BIGreen          
+if [ $UUID == 0 ]; then     
+    colorUser00=$BRed      
+    colorUser=$BIRed       
+fi                          
+                            
+echo -e "\e[0m"             
+echo -e "\t${Green}IP Address\t\t:"
+                            
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+                            
+myip=$(curl --ipv4 https://ipecho.net/plain -s)
+                            
+echo -e "\t${BIGreen}↳ 🌐 Public${IWhite}\t\t: \t ${BICyan}${myip}"
+ip_list=$(ip addr show | grep 'inet ' | awk '{print $2}')
+interface_list=$(ip addr show | grep 'inet ' | awk '{print $NF}')
+                            
+i=1                         
+for ip in $ip_list; do      
+  interface=$(echo "$interface_list" | sed -n "${i}p")
+  if [  15 -le ${#interface} ]; then
+        echo -e "\t${BYellow}↳ $interface${IWhite}\t: \t $ip"
+  elif [  7 -le ${#interface} ]; then
+        echo -e "\t${BYellow}↳ $interface${IWhite}\t\t: \t $ip"
+  else                      
+        echo -e "\t${BYellow}↳ $interface${IWhite}\t\t\t: \t $ip"
+  fi                        
+  ((i++))                   
+done                        
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+echo -e "\e[0m"    
