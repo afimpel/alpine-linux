@@ -1,0 +1,163 @@
+#!/bin/bash
+
+Color_Off='\e[0m'       # Text Reset
+
+# Regular Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
+# Bold
+BBlack='\e[1;30m'       # Black
+BRed='\e[1;31m'         # Red
+BGreen='\e[1;32m'       # Green
+BYellow='\e[1;33m'      # Yellow
+BBlue='\e[1;34m'        # Blue
+BPurple='\e[1;35m'      # Purple
+BCyan='\e[1;36m'        # Cyan
+BWhite='\e[1;37m'       # White
+
+# Underline
+UBlack='\e[4;30m'       # Black
+URed='\e[4;31m'         # Red
+UGreen='\e[4;32m'       # Green
+UYellow='\e[4;33m'      # Yellow
+UBlue='\e[4;34m'        # Blue
+UPurple='\e[4;35m'      # Purple
+UCyan='\e[4;36m'        # Cyan
+UWhite='\e[4;37m'       # White
+
+# Background
+On_Black='\e[40m'       # Black
+On_Red='\e[41m'         # Red
+On_Green='\e[42m'       # Green
+On_Yellow='\e[43m'      # Yellow
+On_Blue='\e[44m'        # Blue
+On_Purple='\e[45m'      # Purple
+On_Cyan='\e[46m'        # Cyan
+On_White='\e[47m'       # White
+
+# High Intensity
+IBlack='\e[0;90m'       # Black
+IRed='\e[0;91m'         # Red
+IGreen='\e[0;92m'       # Green
+IYellow='\e[0;93m'      # Yellow
+IBlue='\e[0;94m'        # Blue
+IPurple='\e[0;95m'      # Purple
+ICyan='\e[0;96m'        # Cyan
+IWhite='\e[0;97m'       # White
+
+# Bold High Intensity
+BIBlack='\e[1;90m'      # Black
+BIRed='\e[1;91m'        # Red
+BIGreen='\e[1;92m'      # Green
+BIYellow='\e[1;93m'     # Yellow
+BIBlue='\e[1;94m'       # Blue
+BIPurple='\e[1;95m'     # Purple
+BICyan='\e[1;96m'       # Cyan
+BIWhite='\e[1;97m'      # White
+
+# High Intensity backgrounds
+On_IBlack='\e[0;100m'   # Black
+On_IRed='\e[0;101m'     # Red
+On_IGreen='\e[0;102m'   # Green
+On_IYellow='\e[0;103m'  # Yellow
+On_IBlue='\e[0;104m'    # Blue
+On_IPurple='\e[0;105m'  # Purple
+On_ICyan='\e[0;106m'    # Cyan
+On_IWhite='\e[0;107m'   # White
+
+ver=$(grep PRETTY_NAME /etc/os-release  | cut -d '"' -f 2);
+{
+	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c | tr ' ' ' ')
+	IFS=" " read -a cores_array00 <<< $cpuinfoCore
+	coresThreads="${cores_array00[3]} Cores${BICyan} / ${BWhite}${cores_array00[0]} Threads"
+} || {
+	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c)
+	IFS=" " read -a cores_array00 <<< $cpuinfoCore
+	coresThreads="${cores_array00} Cores${BICyan} / ${BWhite}${cores_array00} Threads"
+}
+cpudata="$(grep model /proc/cpuinfo | cut -d : -f 2 | tail -1 | sed 's/\s//') ( ${BWhite}${coresThreads}${BICyan} )${Color_Off}";
+hardwaredata="$(cat /sys/devices/virtual/dmi/id/chassis_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/product_name) ( ${BIYellow}$(cat /sys/devices/virtual/dmi/id/board_name)${IWhite} )"
+#### Default string
+if [ "Default string" == "$(cat /sys/devices/virtual/dmi/id/chassis_vendor)" ]; then
+	hardwaredata="$(cat /sys/devices/virtual/dmi/id/bios_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/bios_version) ( ${BIYellow}$(cat /sys/devices/virtual/dmi/id/bios_date)${IWhite} )"
+fi
+
+
+
+UUID=$(id | cut -d '=' -f 2 | cut -d '(' -f 1)
+
+colorUser00=$BGreen
+colorUser=$BIGreen
+if [ $UUID == 0 ]; then
+    colorUser00=$BRed
+    colorUser=$BIRed
+fi
+
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+echo -e "\t${IGreen}System    ${IWhite}\t\t: \t ${BICyan}${ver}";
+echo -e "\t${IGreen}Kernel    ${IWhite}\t\t: \t ${BICyan}$(uname -r)${IWhite} of ${BICyan}$(uname -m)${IWhite}";
+if [ -d "/sys/class/power_supply/BAT0/" ]; then
+	batteryColor=$BIYellow
+	if [[ $(cat /sys/class/power_supply/BAT0/status) == "Discharging" ]]; then
+		batteryColor=$BIRed
+	fi
+	echo -e "\t${IGreen}Battery   ${IWhite}\t\t: \t ${BICyan}$(cat /sys/class/power_supply/BAT0/capacity) % ${IWhite} ( ${batteryColor}$(cat /sys/class/power_supply/BAT0/status)${IWhite} )";
+fi
+echo -e "\t${IGreen}Hardware  ${IWhite}\t\t: \t ${BICyan}${hardwaredata}";
+echo -e "\t${IGreen}CPU       ${IWhite}\t\t: \t ${BICyan}${cpudata}";
+
+cpunum0=-1
+thermal_dir="/sys/class/thermal"
+thermal_zones=("$thermal_dir"/*)
+for zone in "${thermal_zones[@]}"; do
+	zone_name=$(basename "$zone")
+	if [[ $zone_name == thermal_zone* ]]; then
+        cpunum0=$(( cpunum0 + 1 ))
+		temperature=$(cat "$zone/temp")
+		temperature=$(awk "BEGIN {printf \"%.2f\n\", $temperature / 1000}")
+		echo -e "\t↳ ${IGreen}CORE$cpunum0 TEMP  ${IWhite}\t\t: \t $temperature °C"
+	fi
+done
+
+echo -e "\t${IGreen}RAM       ${IWhite}\t\t: \t Total:${BICyan} $(free -h | awk '/Mem:/ {print $2}')${IWhite} / Free:${BICyan} $(free -h | awk '/Mem:/ {print $4}')";
+echo -e "\t${IGreen}HardDrive ${IWhite}\t\t: \t Total:${BICyan} $(df -h | awk '/\/$/ {print $2}')${IWhite} / Free:${BICyan} $(df -h | awk '/\/$/ {print $4}')";
+echo -e "\t${IGreen}UserName  ${IWhite}\t\t: \t ${colorUser}$(whoami)@$(hostname)${IWhite}\t\t( ${colorUser}${UUID}\t${IWhite})";
+
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+dates=$(date +'%d-%m-%Y %H:%M:%S')
+echo -e "\t${IGreen}DateTime  ${IWhite}\t\t: \t $dates";
+echo -e "\t${IGreen}Uptime    ${IWhite}\t\t: \t$(uptime)";
+
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+
+echo -e "\e[0m\t${BGreen}IP Address\t\t:"
+
+myip=$(curl --ipv4 https://ipecho.net/plain -s)
+if [ ! -z "$myip" ]
+then
+      echo -e "\t${IGreen}↳ 🌐 Public${Green}\t\t: \t ${BICyan}${myip}"
+fi
+ip_list=$(ip addr show | grep 'inet ' | awk '{print $2}')
+interface_list=$(ip addr show | grep 'inet ' | awk '{print $NF}')
+
+i=1
+for ip in $ip_list; do
+  interface=$(echo "$interface_list" | sed -n "${i}p")
+  if [  15 -le ${#interface} ]; then
+        echo -e "\t${IYellow}↳ $interface${Green}\t: \t ${BWhite}$ip"
+  elif [  6 -le ${#interface} ]; then
+        echo -e "\t${IYellow}↳ $interface${Green}\t\t: \t ${BWhite}$ip"
+  else
+        echo -e "\t${IYellow}↳ $interface${Green}\t\t\t: \t ${BWhite}$ip"
+  fi
+  ((i++))
+done
+
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";

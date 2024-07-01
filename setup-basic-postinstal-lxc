@@ -58,7 +58,9 @@ else
     wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
+    wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
+    chmod 777 /usr/bin/login-info
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
     chmod 777 /usr/bin/update-t* -R
