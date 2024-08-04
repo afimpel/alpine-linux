@@ -16,7 +16,7 @@ else
     wget --no-cache -O /usr/bin/pkexec_upgrade-flatpak ${URLgithub}/utils/pkexec_upgrade-flatpak
     wget --no-cache -O /usr/bin/upgrade-flatpak ${URLgithub}/utils/upgrade-flatpak
     sudo wget --no-cache -O /usr/share/applications/gksu_upgrade-flatpak.desktop ${URLgithub}/utils/gksu_upgrade-flatpak.desktop
-    wget --no-cache -O /usr/share/pixmaps/upgrade.png ${URLgithub}/utils/upgrade.png
+    sudo wget --no-cache -O /usr/share/pixmaps/upgrade.png ${URLgithub}/utils/upgrade.png
     sudo wget --no-cache -O /usr/share/applications/flathub.desktop ${URLgithub}/utils/flathub.desktop
     sudo wget --no-cache -O /usr/share/pixmaps/flathub.png ${URLgithub}/utils/flathub.png
     flatpak install flathub com.github.tchx84.Flatseal -y
