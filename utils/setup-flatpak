@@ -13,8 +13,8 @@ else
     sudo  apk add flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     wget --no-cache -O ~/flathub.desktop ${URLgithub}/utils/flathub.desktop
-    wget --no-cache -O /usr/bin/pkexec_upgrade-flatpak ${URLgithub}/utils/pkexec_upgrade-flatpak
-    wget --no-cache -O /usr/bin/upgrade-flatpak ${URLgithub}/utils/upgrade-flatpak
+    sudo wget --no-cache -O /usr/bin/pkexec_upgrade-flatpak ${URLgithub}/utils/pkexec_upgrade-flatpak
+    sudo wget --no-cache -O /usr/bin/upgrade-flatpak ${URLgithub}/utils/upgrade-flatpak
     sudo wget --no-cache -O /usr/share/applications/gksu_upgrade-flatpak.desktop ${URLgithub}/utils/gksu_upgrade-flatpak.desktop
     sudo wget --no-cache -O /usr/share/pixmaps/upgrade.png ${URLgithub}/utils/upgrade.png
     sudo wget --no-cache -O /usr/share/applications/flathub.desktop ${URLgithub}/utils/flathub.desktop
