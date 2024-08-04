@@ -1,2 +1,131 @@
-//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
-@theme "/usr/share/rofi/themes/sidebar.rasi"
+configuration {
+	/*---------- General setting ----------*/
+	modi: "drun,ssh,filebrowser,window,windowcd,keys";
+	display-window: "Windows";
+	display-windowcd: "Window CD";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Apps";
+	display-combi: "Combi";
+	display-keys: "Keys";
+	display-filebrowser: "Files";
+	show-icons: true;
+}
+
+* {
+  font:            "mono 12";
+
+  bg0    : #030303e6;
+  bg1    : #202020e6;
+  bg2    : #2c2c2c;
+  bg3    : #000000;
+  fg0    : #ffffff;
+  fg1    : #cecece;
+  accent : #47c5ff;
+  urgent : @accent;
+
+  background-color : transparent;
+  text-color       : @fg0;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  width:   70%;
+  border:       2px;
+  border-color: #515151;
+  background-color : @bg1;
+  border-radius    : 3px;
+  height:       71%;
+}
+
+mainbox {
+  padding : 0.6em 0.3em 0.3em 0.3em;
+  spacing : 0.2em;
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+icon-search {
+  expand   : false;
+  filename : "afimpelelnerd";
+  size     : 28px;
+  margin   : 0px 1.2em 0em 1.2em ;
+}
+
+entry {
+  placeholder       : "buscar ...";
+  placeholder-color : @fg1;
+}
+
+inputbar {
+    children:   [ icon-search, prompt,textbox-prompt-colon,entry,case-indicator ];   
+    padding: 5px;
+    border: 0px 0px 0px 0px;
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.6em 0em 0.6em ;
+}
+case-indicator {
+    spacing:    0;
+}
+prompt, button{
+    spacing:    0;
+    text-color: cyan;
+}
+
+
+textbox {
+  padding          : 1em;
+  background-color : @bg2;
+}
+
+listview {
+  columns       : 1;
+  spacing       : 0;
+  fixed-height  : true;
+  fixed-columns : true;
+}
+
+element {
+  spacing       : 1em;
+  padding       :  8px 16px;
+  border-radius    : 8px 72px 72px 8px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
+}
+
+element selected {
+    border:       2px;
+    border-color: #515151;
+    background-color: @bg3;
+    text-color: cyan;  
+}
+
+element selected urgent {
+  background-color: @urgent;
+}
+
+element-icon {
+  size: 1.5em;
+}
+
+element-text {
+  text-color: inherit;
+}

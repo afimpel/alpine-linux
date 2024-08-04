@@ -11,7 +11,7 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-desktop gnome 
     echo "${I_OK}    **** install packages ****" 
-    sudo apk add --no-cache gnome-apps-core gnome-control-center gnome-backgrounds
+    sudo apk add --no-cache gnome-apps-core gnome-control-center gnome-backgrounds tilix
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
 
     sudo rc-update add dbus

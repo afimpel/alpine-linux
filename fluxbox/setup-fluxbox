@@ -13,9 +13,10 @@ else
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang alsa-utils alsaconf\
         xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme adwaita-icon-theme\
-        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang xcalc rofi\
-        dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd font-hack-nerd nerd-fonts networkmanager-wifi networkmanager networkmanager-lang\
-        network-manager-applet firefox 
+        mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang rofi\
+        dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd\
+        font-hack-nerd nerd-fonts networkmanager-wifi networkmanager networkmanager-lang\
+        network-manager-applet firefox tilix pcmanfm pcmanfm-lang
 
     sudo rc-update add dbus
     sudo rc-update add lightdm

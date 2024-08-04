@@ -42,6 +42,17 @@ else
         fi
     fi' > /etc/profile.d/bash-completion.sh
 
+    url=$(more /etc/apk/repositories | grep http | grep -v '^#' | head -n 1)
+    repositories_url="${url%/*/*}"
+    echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
+    echo "${repositories_url}/edge/main" > /etc/apk/repositories
+    echo "${repositories_url}/edge/community" >> /etc/apk/repositories
+    echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
+
+    apk update 
+    apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal\
+    openssl jq fastfetch musl-locales-lang chrony sshpass
+
     echo "${I_OK}    POOL: NTP"
     echo 'server 0.south-america.pool.ntp.org iburst' > /etc/chronyd.conf
     echo 'server 1.south-america.pool.ntp.org iburst' >> /etc/chronyd.conf
@@ -51,26 +62,22 @@ else
     rc-update add crond default
     service crond restart
 
-    url=$(more /etc/apk/repositories | grep http | grep -v '^#' | head -n 1)
-    repositories_url="${url%/*/*}"
-    echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
-    echo "${repositories_url}/edge/main" > /etc/apk/repositories
-    echo "${repositories_url}/edge/community" >> /etc/apk/repositories
-    echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
-
-    apk update 
-    apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal openssl jq fastfetch
-
     echo "${I_OK}    SUDO: SET Group: WHEEL"
     adduser $(getent passwd 1000 | cut -d: -f1) wheel
     echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
-    echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-syste*, /usr/bin/update-*" >> /etc/sudoers.d/wheel
+    echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-*, /usr/bin/update-*" >> /etc/sudoers.d/wheel
     echo "${I_OK}    CHANGE: ASH to BASH"
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
+    echo "${I_OK}    CHANGE: SH to BASH"
+    sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
-    echo "${I_OK}    SET: Neofetch"
+    echo "${I_OK}    SET: neofetch"
     mkdir -p ~/.config/neofetch
     wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
+
+    echo "${I_OK}    SET: fastfetch"
+    mkdir -p ~/.config/fastfetch
+    wget --no-cache -O ~/.config/fastfetch/config.conf ${URLgithub}/global/fastfetch.conf
 
     wget --no-cache -O /tmp/locate.json 'https://ipapi.co/json/'
     languages=$(jq .languages /tmp/locate.json -r | cut -d, -f1)

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Reset
+NC='\e[0m'
+echo "${I_OK}    Installing Updates ...                                                      ${I_OK}";
+flatpak update
+dates=$(date +'%d.%m.%Y %H:%M')
+echo "${I_OK}    updated system: ${dates}.                                           ${I_OK}";

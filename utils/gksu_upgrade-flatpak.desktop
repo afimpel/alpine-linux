@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Upgrade Flatpak
+Name[es]=Actualizar Flatpak
+Comment=Flatpak applications are updated.
+Comment[es]=Se actualizan las Aplicaciones de flatpak.
+Categories=System;Settings
+Exec=/usr/bin/pkexec_upgrade-flatpak
+Icon=upgrade
+Path=
+Terminal=false
+StartupNotify=false

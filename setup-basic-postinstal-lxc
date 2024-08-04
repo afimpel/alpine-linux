@@ -25,6 +25,17 @@ else
     alias la='lsd -lhA'
     " > /etc/profile.d/alias-completion.sh
 
+    url=$(more /etc/apk/repositories | grep http | grep -v '^#' | head -n 1)
+    repositories_url="${url%/*/*}"
+    echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
+    echo "${repositories_url}/edge/main" > /etc/apk/repositories
+    echo "${repositories_url}/edge/community" >> /etc/apk/repositories
+    echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
+
+    apk update 
+    apk add --no-cache nano lsd git mc bash zsh htop curl btop lsblk bash-completion lsb-release-minimal openssl jq fastfetch\
+    musl-locales-lang sshpass
+
     echo "${I_OK}    BASH: Completion"
     echo 'if [ "x${BASH_VERSION-}" != x -a "x${PS1-}" != x -a "x${BASH_COMPLETION_VERSINFO-}" = x ]; then
         # Check for recent enough version of bash.
@@ -39,31 +50,22 @@ else
         fi
     fi' > /etc/profile.d/bash-completion.sh
 
-    url=$(more /etc/apk/repositories | grep http | grep -v '^#' | head -n 1)
-    repositories_url="${url%/*/*}"
-    echo "${I_OK}    Repositories: ${repositories_url}/edge | { main, community & testing }"
-    echo "${repositories_url}/edge/main" > /etc/apk/repositories
-    echo "${repositories_url}/edge/community" >> /etc/apk/repositories
-    echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
-
-    apk update 
-    apk add --no-cache nano lsd git mc bash zsh htop curl btop lsblk bash-completion lsb-release-minimal openssl jq fastfetch
-
     echo "${I_OK}    CHANGE: ASH to BASH"
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
+
+    echo "${I_OK}    CHANGE: SH to BASH"
+    sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
     echo "${I_OK}    ADD: Toolkit"
     wget --no-cache -O /usr/bin/upgrade-system https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system 
     wget --no-cache -O /usr/bin/upgrade-system-poweroff https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff 
     wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
-    wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
     chmod 777 /usr/bin/login-info
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
-    chmod 777 /usr/bin/update-t* -R
     chmod 777 /etc/profile.d/*.sh
 
     echo "${I_OK}    END: $(date)"

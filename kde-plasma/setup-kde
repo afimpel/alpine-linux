@@ -14,7 +14,7 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
     sudo apk add --no-cache \
         kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-desktop-lang plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
-        dolphin dolphin-lang konsole kwrite konsole-lang kwrite-lang breeze breeze-gtk breeze-icons util-linux-misc 
+        dolphin dolphin-lang konsole kwrite konsole-lang kwrite-lang breeze breeze-gtk breeze-icons util-linux-misc
 
     sudo rc-update add dbus
     sudo rc-update add lightdm

@@ -13,14 +13,21 @@ else
     sudo  apk add flatpak
     flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
     wget --no-cache -O ~/flathub.desktop ${URLgithub}/utils/flathub.desktop
+    wget --no-cache -O /usr/bin/pkexec_upgrade-flatpak ${URLgithub}/utils/pkexec_upgrade-flatpak
+    wget --no-cache -O /usr/bin/upgrade-flatpak ${URLgithub}/utils/upgrade-flatpak
+    sudo wget --no-cache -O /usr/share/applications/gksu_upgrade-flatpak.desktop ${URLgithub}/utils/gksu_upgrade-flatpak.desktop
+    wget --no-cache -O /usr/share/pixmaps/upgrade.png ${URLgithub}/utils/upgrade.png
     sudo wget --no-cache -O /usr/share/applications/flathub.desktop ${URLgithub}/utils/flathub.desktop
     sudo wget --no-cache -O /usr/share/pixmaps/flathub.png ${URLgithub}/utils/flathub.png
     flatpak install flathub com.github.tchx84.Flatseal -y
     sudo chmod 777 /usr/share/pixmaps/* -R
     sudo chmod 777 ~/*.desktop -R
-    sudo chmod 777 /var/lib/flatpak/exports/share/ -R
+    sudo chmod 777 /var/lib/flatpak/exports/share -R
     sudo chmod 777 /usr/share/applications/flathub.desktop -R
+    sudo chmod 777 /usr/share/applications/gksu_upgrade-flatpak.desktop -R
+    sudo chmod 777  /usr/bin/upgrade-* -R
+    sudo chmod 777  /usr/bin/pkexec_* -R
     ln -s /var/lib/flatpak/exports/share/icons ~/.local/share/icons
     ln -s /var/lib/flatpak/exports/share/applications ~/.local/share/applications
-    sudo upgrade-system-reboot
+    upgrade-flatpak
 fi

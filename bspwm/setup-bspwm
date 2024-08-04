@@ -10,8 +10,12 @@ if [ $UUID != 1000 ]; then
         exit 1;
 else
     sudo setup-xorg-base 
+    echo "${I_OK}    **** install packages ****" 
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+
     echo "${I_OK}    bspwm setup script with lightdm"
-    sudo apk add --no-cache bspwm sxhkd rxvt-unicode feh picom setxkbmap font-fira-code font-ubuntu libva-glx rofi polybar ranger htop xterm firefox lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme  mint-y-icons udisks2 mousepad mousepad-lang xcalc pulseaudio pulseaudio-alsa alsa-plugins-pulse pulseaudio-utils pavucontrol 
+    sudo apk add --no-cache bspwm sxhkd rxvt-unicode feh picom setxkbmap libva-glx polybar ranger bspwm-bash-completion bspwm-doc\
+    networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang network-manager-applet pcmanfm pcmanfm-lang
     # Creates main config directory
     echo "${I_OK}    Creating config directory"
     mkdir ~/.config
