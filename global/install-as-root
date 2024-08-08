@@ -11,27 +11,32 @@ if [ $UUID != 0 ]; then
         exit 1;
 else
     mkdir -p /usr/share/pixmaps/
-    adduser $(getent passwd 1000 | cut -d: -f1) plugdev
+    users=$(getent passwd 1000 | cut -d: -f1)
+
+    echo "${I_OK}    USER:   ${users} ( 1000 )"
+    adduser ${users} plugdev
+
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O /usr/share/applications/my-github.desktop ${URLgithub}/global/github.desktop
-    wget --no-cache -O /usr/share/applications/my-afimpelelnerd.desktop ${URLgithub}/global/afimpelelnerd.desktop
-    wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/youtube.desktop
+    wget --no-cache -O /etc/security/limits.d/audio.conf ${URLgithub}/global/security/audio.conf 
+
+    wget --no-cache -O /usr/share/applications/my-github.desktop ${URLgithub}/global/desktop/github.desktop
+    wget --no-cache -O /usr/share/applications/my-afimpelelnerd.desktop ${URLgithub}/global/desktop/afimpelelnerd.desktop
+    wget --no-cache -O /usr/share/applications/my-youtube.desktop ${URLgithub}/global/desktop/youtube.desktop
     wget --no-cache -O - https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/Desktop/cli.sh | sh
 
     variable=$(nmcli -v)
     if [ -n "$variable" ]; then
         wget --no-cache -O /etc/NetworkManager/NetworkManager.conf ${URLgithub}/global/NetworkManager/NetworkManager.conf 
         wget --no-cache -O /etc/NetworkManager/conf.d/any-user.conf ${URLgithub}/global/NetworkManager/conf.d/any-user.conf
-        wget --no-cache -O /etc/security/limits.d/audio.conf ${URLgithub}/global/security/audio.conf 
     fi
 
     echo "${I_OK}    Downloading ICONS"
-    wget --no-cache -O /usr/share/pixmaps/youtube.svg ${URLgithub}/global/youtube.svg
-    wget --no-cache -O /usr/share/pixmaps/github.svg ${URLgithub}/global/github.svg
-    wget --no-cache -O /usr/share/pixmaps/youtube.png ${URLgithub}/global/youtube.png
-    wget --no-cache -O /usr/share/pixmaps/github.png ${URLgithub}/global/github.png
-    wget --no-cache -O /usr/share/pixmaps/alpine.png ${URLgithub}/global/alpine.png
-    wget --no-cache -O /usr/share/pixmaps/afimpelelnerd.png ${URLgithub}/global/afimpelelnerd.png
+    wget --no-cache -O /usr/share/pixmaps/youtube.svg  ${URLgithub}/global/desktop/youtube.svg
+    wget --no-cache -O /usr/share/pixmaps/github.svg  ${URLgithub}/global/desktop/github.svg
+    wget --no-cache -O /usr/share/pixmaps/youtube.png  ${URLgithub}/global/desktop/youtube.png
+    wget --no-cache -O /usr/share/pixmaps/github.png  ${URLgithub}/global/desktop/github.png
+    wget --no-cache -O /usr/share/pixmaps/alpine.png  ${URLgithub}/global/desktop/alpine.png
+    wget --no-cache -O /usr/share/pixmaps/afimpelelnerd.png  ${URLgithub}/global/desktop/afimpelelnerd.png
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds

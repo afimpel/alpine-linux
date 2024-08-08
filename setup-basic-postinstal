@@ -4,12 +4,15 @@ UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+URLgithubUpdate="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
 
 NC='\e[0m'
 if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
+    users=$(getent passwd 1000 | cut -d: -f1)
+    echo "${I_OK}    USER:   ${users} ( 1000 )"
     echo "${I_OK}    BACKUP: Repositories"
     cp /etc/apk/repositories /etc/apk/repositories_old
     mv /etc/profile.d/color_prompt.sh.disabled /etc/profile.d/color_prompt.sh
@@ -62,10 +65,6 @@ else
     rc-update add crond default
     service crond restart
 
-    echo "${I_OK}    SUDO: SET Group: WHEEL"
-    adduser $(getent passwd 1000 | cut -d: -f1) wheel
-    echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel
-    echo "%wheel ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/reboot, /sbin/shutdown, /usr/bin/upgrade-*, /usr/bin/update-*" >> /etc/sudoers.d/wheel
     echo "${I_OK}    CHANGE: ASH to BASH"
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
     echo "${I_OK}    CHANGE: SH to BASH"
@@ -86,16 +85,13 @@ else
 
 
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O /usr/bin/upgrade-system https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system 
-    wget --no-cache -O /usr/bin/upgrade-system-poweroff https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff 
-    wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
+    wget --no-cache -O - ${URLgithubUpdate}/installer.sh | bash
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
     chmod 777 /usr/bin/login-info
     chmod 777 /usr/bin/get-ip-address
-    chmod 777 /usr/bin/upgrade-syste* -R
     chmod 777 /usr/bin/update-t* -R
     chmod 777 /etc/profile.d/*.sh
     
@@ -103,5 +99,6 @@ else
     echo "Language: ${languages/-/_}" >> /etc/motd
     echo "Install Date: $(date)" >> /etc/motd
     echo "${I_OK}    END: $(date)"
+    check-package
     upgrade-system-reboot
 fi

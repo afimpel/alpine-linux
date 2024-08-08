@@ -4,6 +4,7 @@ UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+URLgithubUpdate="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
 
 NC='\e[0m'
 if [ $UUID != 0 ]; then
@@ -57,17 +58,20 @@ else
     sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O /usr/bin/upgrade-system https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system 
-    wget --no-cache -O /usr/bin/upgrade-system-poweroff https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-poweroff 
-    wget --no-cache -O /usr/bin/upgrade-system-reboot https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main/upgrade-system-reboot 
+    wget --no-cache -O /usr/bin/check-package ${URLgithubUpdate}/main/check-package
+    wget --no-cache -O /usr/bin/upgrade-system ${URLgithubUpdate}/main/upgrade-system
+    wget --no-cache -O /usr/bin/upgrade-system-poweroff ${URLgithubUpdate}/main/upgrade-system-poweroff
+    wget --no-cache -O /usr/bin/upgrade-system-reboot ${URLgithubUpdate}/main/upgrade-system-reboot
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
     chmod 777 /usr/bin/login-info
     chmod 777 /usr/bin/get-ip-address
     chmod 777 /usr/bin/upgrade-system* -R
+    chmod 777 /usr/bin/check-packag* -R
     chmod 777 /etc/profile.d/*.sh
 
     echo "${I_OK}    END: $(date)"
+    check-package
     upgrade-system-reboot
 fi
