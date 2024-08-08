@@ -77,7 +77,7 @@ else
 
     echo "${I_OK}    SET: fastfetch"
     mkdir -p ~/.config/fastfetch
-    wget --no-cache -O ~/.config/fastfetch/config.conf ${URLgithub}/global/fastfetch.conf
+    wget --no-cache -O ~/.config/fastfetch/config.jsonc ${URLgithub}/global/fastfetch.jsonc
 
     wget --no-cache -O /tmp/locate.json 'https://ipapi.co/json/'
     languages=$(jq .languages /tmp/locate.json -r | cut -d, -f1)
