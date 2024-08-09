@@ -90,15 +90,15 @@ else
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
-    chmod 777 /usr/bin/login-info
-    chmod 777 /usr/bin/get-ip-address
-    chmod 777 /usr/bin/update-t* -R
-    chmod 777 /etc/profile.d/*.sh
+    chmod 777 -Rv /usr/bin/login-info
+    chmod 777 -Rv /usr/bin/get-ip-address
+    chmod 777 -Rv /usr/bin/update-t*
+    chmod 777 -Rv /etc/profile.d/*.sh
     
     wget --no-cache -O /etc/motd ${URLgithub}/global/motd
     echo "Language: ${languages/-/_}" >> /etc/motd
     echo "Install Date: $(date)" >> /etc/motd
     echo "${I_OK}    END: $(date)"
-    check-package
+    package-update
     upgrade-system-reboot
 fi

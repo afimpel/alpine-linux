@@ -16,6 +16,6 @@ else
     sleep 2s
     wget --no-cache -O /usr/share/xsessions/fluxbox.desktop ${URLgithub}/fluxbox/gtk-config/fluxbox.desktop
     wget --no-cache -O /etc/lightdm/lightdm.conf ${URLgithub}/fluxbox/gtk-config/lightdm.conf
-    chmod 777 /usr/share/xsessions -R
+    chmod 777 -Rv /usr/share/xsessions
     cat /usr/share/xsessions/fluxbox.desktop
 fi

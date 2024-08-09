@@ -31,7 +31,7 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"
-    rm -rf /config/.cache/* /tmp/*
+    rm -rvf /config/.cache/* /tmp/*
     start-pulseaudio-x11
     sudo upgrade-system-reboot
 fi

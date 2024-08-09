@@ -22,5 +22,5 @@ else
     wget --no-cache -O ~/my-afimpelelnerd.desktop ${URLgithub}/global/desktop/afimpelelnerd.desktop
     wget --no-cache -O ~/my-github.desktop ${URLgithub}/global/desktop/github.desktop
     wget --no-cache -O ~/my-youtube.desktop ${URLgithub}/global/desktop/youtube.desktop
-    chmod 777 ~/my-* -R
+    chmod 777 -Rv ~/my-*
 fi

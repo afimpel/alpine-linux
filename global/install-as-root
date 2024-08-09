@@ -47,7 +47,7 @@ else
     wget --no-cache -O /usr/share/backgrounds/wallpaper-4.jpg ${URLgithub}/assets/wallpaper-4.jpg?raw=true
 
     echo "Install Date: $(date)" >> /etc/motd
-    chmod 777 /usr/share/backgrounds/* -R
-    chmod 777 /usr/share/pixmaps/* -R
-    chmod 777 /usr/share/applications/my-* -R
+    chmod 777 -Rv /usr/share/backgrounds/*
+    chmod 777 -Rv /usr/share/pixmaps/*
+    chmod 777 -Rv /usr/share/applications/my-*
 fi

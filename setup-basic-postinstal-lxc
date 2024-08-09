@@ -21,9 +21,9 @@ else
     export LS_OPTIONS='--color=auto';
     alias tailf='tail --follow'
     alias ls='ls $LS_OPTIONS'
-    alias dir='lsd'
-    alias ll='lsd -lh'
-    alias la='lsd -lhA'
+    alias dir='lsd -lh'
+    alias ll='ls -lh'
+    alias la='ls -lhA'
     " > /etc/profile.d/alias-completion.sh
 
     url=$(more /etc/apk/repositories | grep http | grep -v '^#' | head -n 1)
@@ -58,20 +58,20 @@ else
     sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O /usr/bin/check-package ${URLgithubUpdate}/main/check-package
+    wget --no-cache -O /usr/bin/package-update ${URLgithubUpdate}/main/package-update
     wget --no-cache -O /usr/bin/upgrade-system ${URLgithubUpdate}/main/upgrade-system
     wget --no-cache -O /usr/bin/upgrade-system-poweroff ${URLgithubUpdate}/main/upgrade-system-poweroff
     wget --no-cache -O /usr/bin/upgrade-system-reboot ${URLgithubUpdate}/main/upgrade-system-reboot
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 
-    chmod 777 /usr/bin/login-info
-    chmod 777 /usr/bin/get-ip-address
-    chmod 777 /usr/bin/upgrade-system* -R
-    chmod 777 /usr/bin/check-packag* -R
-    chmod 777 /etc/profile.d/*.sh
+    chmod 777 -Rv /usr/bin/login-info
+    chmod 777 -Rv /usr/bin/get-ip-address
+    chmod 777 -Rv /usr/bin/upgrade-system*
+    chmod 777 -Rv /usr/bin/package-update
+    chmod 777 -Rv /etc/profile.d/*.sh
 
     echo "${I_OK}    END: $(date)"
-    check-package
+    package-update
     upgrade-system-reboot
 fi

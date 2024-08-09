@@ -41,10 +41,10 @@ else
     wget --no-cache -O ~/.fluxbox/menuconfig ${URLgithub}/fluxbox/user-config/fluxbox/menuconfig
     wget --no-cache -O ~/.fluxbox/startup ${URLgithub}/fluxbox/user-config/fluxbox/startup
     wget --no-cache -O ~/.fluxbox/usermenu ${URLgithub}/fluxbox/user-config/fluxbox/usermenu
-    chmod 777 ~/.fluxbox/* -R
+    chmod 777 -Rv ~/.fluxbox/*
     wget --no-cache -O ~/script/my-rofi.sh ${URLgithub}/fluxbox/script/my-rofi.sh
     wget --no-cache -O ~/script/poweroff.sh ${URLgithub}/fluxbox/script/poweroff.sh
-    chmod 777 ~/script/* -R
+    chmod 777 -Rv ~/script/*
     wget --no-cache -O ~/.gtkrc-2.0 ${URLgithub}/fluxbox/user-config/gtkrc-2.0
     wget --no-cache -O ~/.config/gtk-3.0/settings.ini ${URLgithub}/fluxbox/user-config/config/gtk-3.0/settings.ini
     wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
@@ -54,7 +54,7 @@ else
     sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
-    rm -rf /config/.cache/* /tmp/*
+    rm -rvf /config/.cache/* /tmp/*
  
     sudo upgrade-system-reboot
 fi
