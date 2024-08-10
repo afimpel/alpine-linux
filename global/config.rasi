@@ -1,0 +1,14 @@
+configuration {
+	/*---------- General setting ----------*/
+	modi: "drun,filebrowser,window,windowcd,keys";
+	display-window: "Windows";
+	display-windowcd: "Window CD";
+	display-run: "Run";
+	display-ssh: "SSH";
+	display-drun: "Apps";
+	display-combi: "Combi";
+	display-keys: "Keys";
+	display-filebrowser: "Files";
+	show-icons: true;
+}
+@theme "/usr/share/rofi/themes/afimpelelnerd.rasi"

@@ -42,6 +42,7 @@ else
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ${URLgithub}/xfce4/config/xsettings.xml
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml ${URLgithub}/xfce4/config/keyboard-layout.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml 
+    wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml ${URLgithub}/xfce4/config/xfce4-desktop.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ${URLgithub}/xfce4/config/xfce4-panel.xml 
     wget --no-cache -O ~/.config/xfce4/panel/launcher-17/firefox.desktop ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop
     wget --no-cache -O ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop 

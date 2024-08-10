@@ -11,10 +11,8 @@ if [ $UUID != 1000 ]; then
 else
     echo "${I_OK}    Configuring user ..."
     mkdir -p ~/.config/rofi
-    mkdir -p ~/.config/neofetch
     mkdir -p ~/.config/fastfetch
-    wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
-    wget --no-cache -O ~/.config/fastfetch/config.conf ${URLgithub}/global/fastfetch.conf
+    wget --no-cache -O ~/.config/fastfetch/config.jsonc ${URLgithub}/global/fastfetch.jsonc
     wget --no-cache -O ~/.config/rofi/config.rasi ${URLgithub}/global/rofi.rasi
     wget --no-cache -O ~/.bashrc ${URLgithub}/global/bashrc
     wget --no-cache -O ~/.Xdefaults ${URLgithub}/global/Xdefaults

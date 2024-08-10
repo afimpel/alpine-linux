@@ -11,6 +11,7 @@ if [ $UUID != 0 ]; then
         exit 1;
 else
     mkdir -p /usr/share/pixmaps/
+    mkdir -p /usr/share/rofi/themes/
     users=$(getent passwd 1000 | cut -d: -f1)
 
     echo "${I_OK}    USER:   ${users} ( 1000 )"
@@ -40,11 +41,15 @@ else
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds
+    wget --no-cache -O /usr/share/backgrounds/bg_afimpelelnerd.png ${URLgithub}/assets/bg_afimpelelnerd.png?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper.jpg ${URLgithub}/assets/wallpaper.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-1.jpg ${URLgithub}/assets/wallpaper-1.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-2.jpg ${URLgithub}/assets/wallpaper-2.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-3.jpg ${URLgithub}/assets/wallpaper-3.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-4.jpg ${URLgithub}/assets/wallpaper-4.jpg?raw=true
+
+    echo "${I_OK}    Downloading Rofi Theme"
+    wget --no-cache -O /usr/share/rofi/themes/afimpelelnerd.rasi  ${URLgithub}/global/afimpelelnerd.rasi
 
     echo "Install Date: $(date)" >> /etc/motd
     chmod 777 -Rv /usr/share/backgrounds/*

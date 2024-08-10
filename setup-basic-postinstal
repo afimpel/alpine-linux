@@ -53,7 +53,7 @@ else
     echo "${repositories_url}/edge/testing" >> /etc/apk/repositories
 
     apk update 
-    apk add --no-cache nano lsd git mc bash zsh htop neofetch curl btop sudo lsblk bash-completion lsb-release-minimal\
+    apk add --no-cache nano lsd git mc bash zsh htop curl btop sudo lsblk bash-completion lsb-release-minimal\
     openssl jq fastfetch musl-locales-lang chrony sshpass
 
     echo "${I_OK}    POOL: NTP"
@@ -69,10 +69,6 @@ else
     sed -i 's/\/bin\/ash/\/bin\/bash/g' /etc/passwd
     echo "${I_OK}    CHANGE: SH to BASH"
     sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-
-    echo "${I_OK}    SET: neofetch"
-    mkdir -p ~/.config/neofetch
-    wget --no-cache -O ~/.config/neofetch/config.conf ${URLgithub}/global/neofetch.conf
 
     echo "${I_OK}    SET: fastfetch"
     mkdir -p ~/.config/fastfetch
