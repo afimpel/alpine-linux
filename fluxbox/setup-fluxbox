@@ -49,9 +49,9 @@ else
     wget --no-cache -O ~/.config/gtk-3.0/settings.ini ${URLgithub}/fluxbox/user-config/config/gtk-3.0/settings.ini
     wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     wget --no-cache -O ~/.config/tint2/tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
+    sudo echo "Desktop: Fluxbox + LightDM" >> /etc/motd
     wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/fluxbox/install-as-fluxbox | sudo bash
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rvf /config/.cache/* /tmp/*

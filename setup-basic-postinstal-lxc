@@ -70,6 +70,8 @@ else
     chmod 777 -Rv /usr/bin/upgrade-system*
     chmod 777 -Rv /usr/bin/package-update
     chmod 777 -Rv /etc/profile.d/*.sh
+    wget --no-cache -O /etc/motd ${URLgithub}/global/motd
+    echo "Install Date: $(date)" >> /etc/motd
 
     echo "${I_OK}    END: $(date)"
     package-update

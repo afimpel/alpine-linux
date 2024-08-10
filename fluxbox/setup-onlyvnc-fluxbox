@@ -40,7 +40,7 @@ else
     wget --no-cache -O ~/.config/gtk-3.0/settings.ini ${URLgithub}/fluxbox/user-config/config/gtk-3.0/settings.ini
     wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     wget --no-cache -O ~/.config/tint2/tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/fluxbox/motd-vnc
+    sudo echo "Desktop: Fluxbox VNC" >> /etc/motd
     sudo wget --no-cache -O /etc/supervisord.conf ${URLgithub}/fluxbox/supervisord.conf
     sudo sed -i "s/CHANGEUSER/${username}/g" /etc/supervisord.conf
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash

@@ -13,7 +13,7 @@ else
     mkdir -p ~/.config/rofi
     mkdir -p ~/.config/fastfetch
     wget --no-cache -O ~/.config/fastfetch/config.jsonc ${URLgithub}/global/fastfetch.jsonc
-    wget --no-cache -O ~/.config/rofi/config.rasi ${URLgithub}/global/rofi.rasi
+    wget --no-cache -O ~/.config/rofi/config.rasi ${URLgithub}/global/config.rasi
     wget --no-cache -O ~/.bashrc ${URLgithub}/global/bashrc
     wget --no-cache -O ~/.Xdefaults ${URLgithub}/global/Xdefaults
     wget --no-cache -O ~/.Xresources ${URLgithub}/global/Xresources

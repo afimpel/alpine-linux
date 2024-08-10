@@ -31,7 +31,7 @@ else
         's/applications:org.kde.discover.desktop,/applications:org.kde.konsole.desktop,/g' \
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/kde-plasma/motd
+    sudo echo "Desktop: KDE Plasma" >> /etc/motd
     wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 

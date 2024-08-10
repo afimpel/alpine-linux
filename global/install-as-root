@@ -32,8 +32,6 @@ else
     fi
 
     echo "${I_OK}    Downloading ICONS"
-    wget --no-cache -O /usr/share/pixmaps/youtube.svg  ${URLgithub}/global/desktop/youtube.svg
-    wget --no-cache -O /usr/share/pixmaps/github.svg  ${URLgithub}/global/desktop/github.svg
     wget --no-cache -O /usr/share/pixmaps/youtube.png  ${URLgithub}/global/desktop/youtube.png
     wget --no-cache -O /usr/share/pixmaps/github.png  ${URLgithub}/global/desktop/github.png
     wget --no-cache -O /usr/share/pixmaps/alpine.png  ${URLgithub}/global/desktop/alpine.png
@@ -41,7 +39,6 @@ else
 
     echo "${I_OK}    Downloading wallpapers"
     mkdir -p /usr/share/backgrounds
-    wget --no-cache -O /usr/share/backgrounds/bg_afimpelelnerd.png ${URLgithub}/assets/bg_afimpelelnerd.png?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper.jpg ${URLgithub}/assets/wallpaper.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-1.jpg ${URLgithub}/assets/wallpaper-1.jpg?raw=true
     wget --no-cache -O /usr/share/backgrounds/wallpaper-2.jpg ${URLgithub}/assets/wallpaper-2.jpg?raw=true

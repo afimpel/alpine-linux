@@ -26,7 +26,7 @@ else
     echo "${I_OK}    **** application tweaks ****"
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
 
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/gnome/motd
+    sudo echo "Desktop: GNOME" >> /etc/motd
     wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 

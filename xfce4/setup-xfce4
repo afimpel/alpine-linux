@@ -50,7 +50,7 @@ else
     wget --no-cache -O ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 -Rv ~/.config/xfce4/panel/launcher-*
 
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/xfce4/motd
+    sudo echo "Desktop: XFCE4" >> /etc/motd
     wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"

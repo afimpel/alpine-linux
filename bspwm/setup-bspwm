@@ -70,7 +70,7 @@ else
     wget --no-cache -O ~/.xinitrc ${URLgithub}/bspwm/config/xinitrc
 
     # wallpapers
-    sudo wget --no-cache -O /etc/motd ${URLgithub}/bspwm/motd
+    sudo echo "Desktop: bspwm" >> /etc/motd
     wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     # starting lightdm
