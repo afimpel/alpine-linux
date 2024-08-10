@@ -14,7 +14,7 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
 
     sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin-lang\
-      xfce4-whiskermenu-plugin xfce4-notifyd  xfce4-notifyd-lang xfce4-pulseaudio-plugin-lang\
+      xfce4-whiskermenu-plugin xfce4-notifyd tilix xfce4-notifyd-lang xfce4-pulseaudio-plugin-lang\
       xfce4-taskmanager xfce4-taskmanager-lang xfce4-power-manager-lang xfce4-panel-lang\
       thunar thunar-lang thunar-volman thunar-volman-lang xfce4-session-lang\
       networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang network-manager-applet
@@ -38,16 +38,16 @@ else
 
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
     wget --no-cache -O ~/.config/xfce4/helpers.rc ${URLgithub}/xfce4/config/helpers.rc
-    wget --no-cache -O ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop ${URLgithub}/xfce4/config/custom-TerminalEmulator.desktop
+    wget --no-cache -O ~/.local/share/xfce4/helpers/custom-TerminalEmulator.desktop ${URLgithub}/xfce4/helpers/custom-TerminalEmulator.desktop
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xsettings.xml ${URLgithub}/xfce4/config/xsettings.xml
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml ${URLgithub}/xfce4/config/keyboard-layout.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml ${URLgithub}/xfce4/config/xfce4-keyboard-shortcuts.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml ${URLgithub}/xfce4/config/xfce4-desktop.xml 
     wget --no-cache -O ~/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml ${URLgithub}/xfce4/config/xfce4-panel.xml 
-    wget --no-cache -O ~/.config/xfce4/panel/launcher-17/firefox.desktop ${URLgithub}/xfce4/config/panel/launcher-17/firefox.desktop
-    wget --no-cache -O ~/.config/xfce4/panel/launcher-18/xfce4-terminal-emulator.desktop ${URLgithub}/xfce4/config/panel/launcher-18/xfce4-terminal-emulator.desktop 
-    wget --no-cache -O ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop ${URLgithub}/xfce4/config/panel/launcher-19/xfce4-file-manager.desktop
-    wget --no-cache -O ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop ${URLgithub}/xfce4/config/panel/launcher-20/org.xfce.mousepad.desktop
+    cp /usr/share/applications/firefox.desktop ~/.config/xfce4/panel/launcher-17/firefox.desktop
+    cp /usr/share/applications/com.gexperts.Tilix.desktop ~/.config/xfce4/panel/launcher-18/tilix.desktop
+    cp /usr/share/applications/xfce4-file-manager.desktop ~/.config/xfce4/panel/launcher-19/xfce4-file-manager.desktop
+    cp /usr/share/applications/org.xfce.mousepad.desktop ~/.config/xfce4/panel/launcher-20/org.xfce.mousepad.desktop
     chmod 777 -Rv ~/.config/xfce4/panel/launcher-*
 
     sudo echo "Desktop: XFCE4" >> /etc/motd

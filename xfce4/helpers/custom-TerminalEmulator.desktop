@@ -4,8 +4,8 @@ Version=1.0
 Encoding=UTF-8
 Type=X-XFCE-Helper
 X-XFCE-Category=TerminalEmulator
-X-XFCE-CommandsWithParameter=xterm "%s"
-Icon=xterm
-Name=xterm
-X-XFCE-Commands=xterm
+X-XFCE-CommandsWithParameter=tilix "%s"
+Name=Tilix
+Icon=com.gexperts.Tilix
+X-XFCE-Commands=tilix
 

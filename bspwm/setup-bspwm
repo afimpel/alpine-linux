@@ -15,7 +15,7 @@ else
 
     echo "${I_OK}    bspwm setup script with lightdm"
     sudo apk add --no-cache bspwm sxhkd rxvt-unicode feh picom setxkbmap libva-glx polybar ranger bspwm-bash-completion bspwm-doc\
-    networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang network-manager-applet pcmanfm pcmanfm-lang
+    networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang network-manager-applet pcmanfm pcmanfm-lang tilix
     # Creates main config directory
     echo "${I_OK}    Creating config directory"
     mkdir ~/.config
