@@ -12,6 +12,8 @@ else
     sudo setup-xorg-base
     echo "${I_OK}    **** install packages ****" 
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop-apps | sudo bash
 
     sudo apk add --no-cache xfce4 xfce4-pulseaudio-plugin xfce4-whiskermenu-plugin-lang\
       xfce4-whiskermenu-plugin xfce4-notifyd tilix xfce4-notifyd-lang xfce4-pulseaudio-plugin-lang\
@@ -22,7 +24,6 @@ else
     sudo addgroup root audio
 
     sudo rc-update add dbus
-    sudo rc-update add lightdm
     sudo rc-update add elogind
     sudo rc-update del networking boot
     sudo rc-update del wpa_supplicant boot
@@ -51,7 +52,6 @@ else
     chmod 777 -Rv ~/.config/xfce4/panel/launcher-*
 
     sudo echo "Desktop: XFCE4" >> /etc/motd
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
     rm -rvf /config/.cache/* /tmp/*

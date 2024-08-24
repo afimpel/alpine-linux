@@ -12,8 +12,10 @@ else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop-apps | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
 
-    echo "${I_OK}    bspwm setup script with lightdm"
+    echo "${I_OK}    bspwm setup script"
     sudo apk add --no-cache bspwm sxhkd rxvt-unicode feh picom setxkbmap libva-glx polybar ranger bspwm-bash-completion bspwm-doc\
     networkmanager-wifi networkmanager-cli networkmanager networkmanager-lang network-manager-applet pcmanfm pcmanfm-lang tilix
     # Creates main config directory
@@ -71,11 +73,8 @@ else
 
     # wallpapers
     sudo echo "Desktop: bspwm" >> /etc/motd
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     # starting lightdm
-    echo "${I_OK}    Starting lightdm"
-    sudo rc-update add lightdm
     start-pulseaudio-x11
     sudo upgrade-system-reboot
 fi

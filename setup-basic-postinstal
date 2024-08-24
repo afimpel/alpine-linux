@@ -4,7 +4,7 @@ UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
-URLgithubUpdate="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
+URLgithubUpgrade="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
 
 NC='\e[0m'
 if [ $UUID != 0 ]; then
@@ -81,7 +81,7 @@ else
 
 
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O - ${URLgithubUpdate}/installer.sh | bash
+    wget --no-cache -O - ${URLgithubUpgrade}/installer.sh | bash
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/update-time ${URLgithub}/global/update-time
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 

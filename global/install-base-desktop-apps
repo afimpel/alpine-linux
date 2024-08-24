@@ -1,0 +1,21 @@
+#!/bin/bash
+UUID=$(id -u)
+UUID=$(( UUID + 0 ))
+I_OK="✔"
+I_KO="✖️"
+URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
+
+NC='\e[0m'
+if [ $UUID != 0 ]; then
+        echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
+        exit 1;
+else
+    fastfetch
+    echo "${I_OK}    Install base desktop APPS"
+    sudo apk add --no-cache mousepad mousepad-lang xcalc rofi\
+    font-inconsolata font-noto font-noto-cjk font-awesome font-noto-extra\
+    dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd\
+    font-hack-nerd nerd-fonts pulseaudio pulseaudio-alsa alsa-plugins-pulse\
+    pulseaudio-utils pavucontrol pulseaudio-lang pavucontrol-lang\
+    firefox
+fi

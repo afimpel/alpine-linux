@@ -12,10 +12,7 @@ if [ $UUID != 0 ]; then
 else
     fastfetch
     echo "${I_OK}    Install base desktop"
-    sudo apk add --no-cache xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme\
-    mint-y-icons dbus elogind polkit-elogind polkit-lang gvfs udisks2 mousepad mousepad-lang xcalc rofi\
-    dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd\
-    font-hack-nerd nerd-fonts pulseaudio pulseaudio-alsa alsa-plugins-pulse\
-    pulseaudio-utils pavucontrol pulseaudio-lang pavucontrol-lang mesa-gles\
-    firefox
+    sudo apk add --no-cache xterm mint-y-theme\
+    font-terminus font-dejavu\
+    mint-y-icons dbus elogind polkit-elogind polkit-lang gvfs udisks2 mesa-gles 
 fi

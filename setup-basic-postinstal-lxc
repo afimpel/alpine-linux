@@ -4,7 +4,7 @@ UUID=$(( UUID + 0 ))
 I_OK="✔"
 I_KO="✖️"
 URLgithub="https://raw.githubusercontent.com/afimpel/alpine-linux/master"
-URLgithubUpdate="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
+URLgithubUpgrade="https://raw.githubusercontent.com/afimpel/upgrade-system-alpine/main"
 
 NC='\e[0m'
 if [ $UUID != 0 ]; then
@@ -58,10 +58,10 @@ else
     sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 
     echo "${I_OK}    ADD: Toolkit"
-    wget --no-cache -O /usr/bin/package-update ${URLgithubUpdate}/main/package-update
-    wget --no-cache -O /usr/bin/upgrade-system ${URLgithubUpdate}/main/upgrade-system
-    wget --no-cache -O /usr/bin/upgrade-system-poweroff ${URLgithubUpdate}/main/upgrade-system-poweroff
-    wget --no-cache -O /usr/bin/upgrade-system-reboot ${URLgithubUpdate}/main/upgrade-system-reboot
+    wget --no-cache -O /usr/bin/package-update ${URLgithubUpgrade}/package-update
+    wget --no-cache -O /usr/bin/upgrade-system ${URLgithubUpgrade}/upgrade-system
+    wget --no-cache -O /usr/bin/upgrade-system-poweroff ${URLgithubUpgrade}/upgrade-system-poweroff
+    wget --no-cache -O /usr/bin/upgrade-system-reboot ${URLgithubUpgrade}/upgrade-system-reboot
     wget --no-cache -O /usr/bin/get-ip-address ${URLgithub}/global/get-ip-address 
     wget --no-cache -O /usr/bin/login-info ${URLgithub}/global/login-info 
 

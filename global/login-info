@@ -76,21 +76,29 @@ ver=$(grep PRETTY_NAME /etc/os-release  | cut -d '"' -f 2);
 {
 	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c | tr ' ' ' ')
 	IFS=" " read -a cores_array00 <<< $cpuinfoCore
-	coresThreads="${cores_array00[3]} Cores${BICyan} / ${BWhite}${cores_array00[0]} Threads"
+    physical_cpu=$(grep 'physical id' /proc/cpuinfo | cut -d : -f 2 | tail -1)
+	rcpu=$(( ( physical_cpu * 1 ) + 1 ))
+	ccores=$(( ( rcpu * ${cores_array00[3]} ) ))
+	coresThreads="${ccores} Cores${BICyan} / ${BWhite}${cores_array00[0]} Threads"
 } || {
+	rcpu=1;
 	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c)
 	IFS=" " read -a cores_array00 <<< $cpuinfoCore
 	coresThreads="${cores_array00} Cores${BICyan} / ${BWhite}${cores_array00} Threads"
 }
-cpudata="$(grep model /proc/cpuinfo | cut -d : -f 2 | tail -1 | sed 's/\s//') ( ${BWhite}${coresThreads}${BICyan} )${Color_Off}";
-hardwaredata="$(cat /sys/devices/virtual/dmi/id/chassis_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/product_name) ( ${BIYellow}$(cat /sys/devices/virtual/dmi/id/board_name)${IWhite} )"
+cpudata="$(grep model /proc/cpuinfo | cut -d : -f 2 | tail -1 | sed 's/\s//') ( ${BPurple}${rcpu}${BICyan} ) ( ${BWhite}${coresThreads}${BICyan} )${Color_Off}";
+chassis_version=$(cat /sys/devices/virtual/dmi/id/chassis_version)
+if [ -f '/sys/devices/virtual/dmi/id/board_name' ]; then
+	chassis_version="$(cat /sys/devices/virtual/dmi/id/board_name)"
+fi
+
+hardwaredata="$(cat /sys/devices/virtual/dmi/id/chassis_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/product_name) ( ${BIYellow}${chassis_version}${IWhite} )"
 #### Default string
 if [ "Default string" == "$(cat /sys/devices/virtual/dmi/id/chassis_vendor)" ]; then
 	hardwaredata="$(cat /sys/devices/virtual/dmi/id/bios_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/bios_version) ( ${BIYellow}$(cat /sys/devices/virtual/dmi/id/bios_date)${IWhite} )"
 fi
-packageUpdate0=$(apk update && apk version | grep -c "^[^<]")
-packageUpdate0=$( echo $packageUpdate0 | rev | cut -d' ' -f1 | rev )
-packageUpdate=$((( $packageUpdate0 * 1 ) - 1))
+
+
 
 UUID=$(id | cut -d '=' -f 2 | cut -d '(' -f 1)
 
@@ -101,9 +109,8 @@ if [ $UUID == 0 ]; then
     colorUser=$BIRed
 fi
 
-echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+echo -e "\n${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
 echo -e "\t${IGreen}System    ${IWhite}\t\t: \t ${BICyan}${ver}";
-echo -e "\t${IGreen}Upadate   ${IWhite}\t\t: \t ${BICyan}${packageUpdate} packages";
 echo -e "\t${IGreen}Kernel    ${IWhite}\t\t: \t ${BICyan}$(uname -r)${IWhite} of ${BICyan}$(uname -m)${IWhite}";
 if [ -d "/sys/class/power_supply/BAT0/" ]; then
 	batteryColor=$BIYellow
@@ -128,8 +135,9 @@ for zone in "${thermal_zones[@]}"; do
 	fi
 done
 
-echo -e "\t${IGreen}RAM       ${IWhite}\t\t: \t Total:${BICyan} $(free -h | awk '/Mem:/ {print $2}')${IWhite} / Free:${BICyan} $(free -h | awk '/Mem:/ {print $4}')";
-echo -e "\t${IGreen}HardDrive ${IWhite}\t\t: \t Total:${BICyan} $(df -h | awk '/\/$/ {print $2}')${IWhite} / Free:${BICyan} $(df -h | awk '/\/$/ {print $4}')";
+echo -e "\t${IGreen}RAM       ${IWhite}\t\t: \t Total:${BICyan} $(free -h | awk '/Mem:/ {print $2}')${IWhite} ( Used:${BICyan} $(free -h | awk '/Mem:/ {print $3}')${IWhite} / Free:${BICyan} $(free -h | awk '/Mem:/ {print $4}')${IWhite} )";
+echo -e "\t${IGreen}SWAP      ${IWhite}\t\t: \t Total:${BICyan} $(free -h | awk '/Swap:/ {print $2}')${IWhite} ( Used:${BICyan} $(free -h | awk '/Swap:/ {print $3}')${IWhite} / Free:${BICyan} $(free -h | awk '/Swap:/ {print $4}')${IWhite} )";
+echo -e "\t${IGreen}HardDrive ${IWhite}\t\t: \t Total:${BICyan} $(df -h / | awk '/\/$/ {print $2}')${IWhite} ( Used:${BICyan} $(df -h / | awk '/\/$/ {print $3}')${IWhite} / Free:${BICyan} $(df -h / | awk '/\/$/ {print $4}')${IWhite} )";
 echo -e "\t${IGreen}UserName  ${IWhite}\t\t: \t ${colorUser}$(whoami)@$(hostname)${IWhite}\t\t( ${colorUser}${UUID}\t${IWhite})";
 
 echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
@@ -144,7 +152,7 @@ echo -e "\e[0m\t${BGreen}IP Address\t\t:"
 myip=$(curl --ipv4 https://ipecho.net/plain -s)
 if [ ! -z "$myip" ]
 then
-      echo -e "\t${IGreen}↳ 🌐 Public${Green}\t\t: \t ${BICyan}${myip}"
+      echo -e "\t${IGreen}> Public${Green}\t\t: \t ${BICyan}${myip}"
 fi
 ip_list=$(ip addr show | grep 'inet ' | awk '{print $2}')
 interface_list=$(ip addr show | grep 'inet ' | awk '{print $NF}')
@@ -153,13 +161,13 @@ i=1
 for ip in $ip_list; do
   interface=$(echo "$interface_list" | sed -n "${i}p")
   if [  15 -le ${#interface} ]; then
-        echo -e "\t${IYellow}↳ $interface${Green}\t: \t ${BWhite}$ip"
+        echo -e "\t${IYellow}> $interface${Green}\t: \t ${BWhite}$ip"
   elif [  6 -le ${#interface} ]; then
-        echo -e "\t${IYellow}↳ $interface${Green}\t\t: \t ${BWhite}$ip"
+        echo -e "\t${IYellow}> $interface${Green}\t\t: \t ${BWhite}$ip"
   else
-        echo -e "\t${IYellow}↳ $interface${Green}\t\t\t: \t ${BWhite}$ip"
+        echo -e "\t${IYellow}> $interface${Green}\t\t\t: \t ${BWhite}$ip"
   fi
   ((i++))
 done
 
-echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
+echo -e "${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}\n";

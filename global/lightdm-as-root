@@ -10,6 +10,12 @@ if [ $UUID != 0 ]; then
         echo "${I_KO}    Start the Script as 'root' for it to work properly    ${I_KO}";
         exit 1;
 else
+    echo "${I_OK}    Install lightdm"
+    sudo apk add --no-cache lightdm-gtk-greeter lightdm-gtk-greeter-lang
+
     echo "${I_OK}    Configuring lightdm-gtk-greeter"
     wget --no-cache -O /etc/lightdm/lightdm-gtk-greeter.conf ${URLgithub}/global/lightdm-gtk-greeter.conf
+
+    echo "${I_OK}    Starting lightdm"
+    sudo rc-update add lightdm
 fi

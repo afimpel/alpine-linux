@@ -12,9 +12,11 @@ else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop-apps | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     sudo apk add --no-cache \
         kde-gtk-config khotkeys kmenuedit plasma kde-applications-multimedia plasma-browser-integration plasma-desktop plasma-desktop-lang plasma-systemmonitor plasma-workspace-wallpapers systemsettings \
-        dolphin dolphin-lang konsole kwrite konsole-lang kwrite-lang breeze breeze-gtk breeze-icons util-linux-misc tilix
+        dolphin dolphin-lang konsole kwrite konsole-lang kwrite-lang breeze breeze-gtk breeze-icons util-linux-misc 
 
     sudo rc-update add dbus
     sudo rc-update add lightdm
@@ -32,7 +34,6 @@ else
         /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml
 
     sudo echo "Desktop: KDE Plasma" >> /etc/motd
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"

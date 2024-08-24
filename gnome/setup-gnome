@@ -13,9 +13,10 @@ else
     echo "${I_OK}    **** install packages ****" 
     sudo apk add --no-cache gnome-apps-core gnome-control-center gnome-backgrounds tilix
     wget --no-cache -O - ${URLgithub}/global/install-base-desktop | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/install-base-desktop-apps | sudo bash
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
 
     sudo rc-update add dbus
-    sudo rc-update add lightdm
     sudo rc-update add elogind
     sudo rc-update del networking boot
     sudo rc-update del wpa_supplicant boot
@@ -27,7 +28,6 @@ else
     wget --no-cache -O - ${URLgithub}/global/install-as-user | bash
 
     sudo echo "Desktop: GNOME" >> /etc/motd
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
 
     echo "${I_OK}    **** cleanup ****"

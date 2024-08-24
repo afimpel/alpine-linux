@@ -11,15 +11,15 @@ if [ $UUID != 1000 ]; then
 else
     sudo setup-xorg-base 
     echo "${I_OK}    **** install packages ****" 
+    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     sudo apk add --no-cache fluxbox feh tint2 pcmanfm pcmanfm-lang alsa-utils alsaconf\
-        xterm lightdm-gtk-greeter lightdm-gtk-greeter-lang mint-y-theme adwaita-icon-theme\
+        xterm mint-y-theme adwaita-icon-theme\
         mint-y-icons dbus elogind polkit-elogind gvfs udisks2 mousepad mousepad-lang rofi\
         dmenu font-fira-code font-fira-code-nerd font-fira-mono-nerd font-jetbrains-mono-nerd\
         font-hack-nerd nerd-fonts networkmanager-wifi networkmanager networkmanager-lang\
         network-manager-applet firefox tilix pcmanfm pcmanfm-lang
 
     sudo rc-update add dbus
-    sudo rc-update add lightdm
     sudo rc-update add elogind
     sudo rc-update del networking boot
     sudo rc-update del wpa_supplicant boot
@@ -50,7 +50,6 @@ else
     wget --no-cache -O ~/.config/tint2/fluxbox.tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     wget --no-cache -O ~/.config/tint2/tint2rc ${URLgithub}/fluxbox/user-config/config/tint2/fluxbox.tint2rc
     sudo echo "Desktop: Fluxbox + LightDM" >> /etc/motd
-    wget --no-cache -O - ${URLgithub}/global/lightdm-as-root | sudo bash
     wget --no-cache -O - ${URLgithub}/fluxbox/install-as-fluxbox | sudo bash
     wget --no-cache -O - ${URLgithub}/global/install-as-root | sudo bash
     echo "${I_OK}    **** cleanup ****"
