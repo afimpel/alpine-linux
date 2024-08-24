@@ -71,6 +71,7 @@ On_IBlue='\e[0;104m'    # Blue
 On_IPurple='\e[0;105m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
+strcpu=""
 
 ver=$(grep PRETTY_NAME /etc/os-release  | cut -d '"' -f 2);
 {
@@ -80,10 +81,11 @@ ver=$(grep PRETTY_NAME /etc/os-release  | cut -d '"' -f 2);
 	rcpu=$(( ( physical_cpu * 1 ) + 1 ))
 	ccores=$(( ( rcpu * ${cores_array00[3]} ) ))
 	coresThreads="${ccores} Cores${BICyan} / ${BWhite}${cores_array00[0]} Threads"
-	strcpu=" ( ${BPurple}${rcpu}${BICyan} )"
+	if [ $rcpu != 1 ]; then
+		strcpu=" ( ${BPurple}${rcpu}${BICyan} )"
+	fi
 } || {
 	rcpu=1
-	strcpu=""
 	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c)
 	IFS=" " read -a cores_array00 <<< $cpuinfoCore
 	coresThreads="${cores_array00} Cores${BICyan} / ${BWhite}${cores_array00} Threads"
