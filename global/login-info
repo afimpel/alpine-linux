@@ -80,13 +80,15 @@ ver=$(grep PRETTY_NAME /etc/os-release  | cut -d '"' -f 2);
 	rcpu=$(( ( physical_cpu * 1 ) + 1 ))
 	ccores=$(( ( rcpu * ${cores_array00[3]} ) ))
 	coresThreads="${ccores} Cores${BICyan} / ${BWhite}${cores_array00[0]} Threads"
+	strcpu=" ( ${BPurple}${rcpu}${BICyan} )"
 } || {
-	rcpu=1;
+	rcpu=1
+	strcpu=""
 	cpuinfoCore=$(grep cores /proc/cpuinfo | uniq -c)
 	IFS=" " read -a cores_array00 <<< $cpuinfoCore
 	coresThreads="${cores_array00} Cores${BICyan} / ${BWhite}${cores_array00} Threads"
 }
-cpudata="$(grep model /proc/cpuinfo | cut -d : -f 2 | tail -1 | sed 's/\s//') ( ${BPurple}${rcpu}${BICyan} ) ( ${BWhite}${coresThreads}${BICyan} )${Color_Off}";
+cpudata="$(grep model /proc/cpuinfo | cut -d : -f 2 | tail -1 | sed 's/\s//')$strcpu ( ${BWhite}${coresThreads}${BICyan} )${Color_Off}";
 chassis_version=$(cat /sys/devices/virtual/dmi/id/chassis_version)
 if [ -f '/sys/devices/virtual/dmi/id/board_name' ]; then
 	chassis_version="$(cat /sys/devices/virtual/dmi/id/board_name)"
@@ -97,8 +99,9 @@ hardwaredata="$(cat /sys/devices/virtual/dmi/id/chassis_vendor) ${IWhite}$(cat /
 if [ "Default string" == "$(cat /sys/devices/virtual/dmi/id/chassis_vendor)" ]; then
 	hardwaredata="$(cat /sys/devices/virtual/dmi/id/bios_vendor) ${IWhite}$(cat /sys/devices/virtual/dmi/id/bios_version) ( ${BIYellow}$(cat /sys/devices/virtual/dmi/id/bios_date)${IWhite} )"
 fi
-
-
+packageUpdate0=$(apk update && apk version | grep -c "^[^<]")
+packageUpdate0=$( echo $packageUpdate0 | rev | cut -d' ' -f1 | rev )
+packageUpdate=$((( $packageUpdate0 * 1 ) - 1))
 
 UUID=$(id | cut -d '=' -f 2 | cut -d '(' -f 1)
 
@@ -111,6 +114,7 @@ fi
 
 echo -e "\n${Color_Off}-----------------------------------------${colorUser00}------------------------------------------------------------------------------------${Color_Off}";
 echo -e "\t${IGreen}System    ${IWhite}\t\t: \t ${BICyan}${ver}";
+echo -e "\t${IGreen}Upadate   ${IWhite}\t\t: \t ${BICyan}${packageUpdate} packages";
 echo -e "\t${IGreen}Kernel    ${IWhite}\t\t: \t ${BICyan}$(uname -r)${IWhite} of ${BICyan}$(uname -m)${IWhite}";
 if [ -d "/sys/class/power_supply/BAT0/" ]; then
 	batteryColor=$BIYellow
