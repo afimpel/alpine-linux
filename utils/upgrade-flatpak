@@ -1,6 +1,8 @@
 #!/bin/bash
 # Reset
 NC='\e[0m'
+I_OK="✔"
+I_KO="✖️"
 echo "${I_OK}    Installing Updates ...                                                      ${I_OK}";
 flatpak update -y
 dates=$(date +'%d.%m.%Y %H:%M')
