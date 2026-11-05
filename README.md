@@ -1,3 +1,10 @@
+**Important:** This repository has been moved to GitLab so that all related repositories can be kept together in a single folder.
+
+* This repository: **[https://gitlab.com/alpine-linux/gral-script]**  
+* All related repositories: **[https://gitlab.com/alpine-linux]**
+
+----
+
 antes que correr caulquier script seguir paso a paso este video:
 [Alpine Linux desde Cero](https://www.youtube.com/watch?v=POiin5rr7eM)
 
